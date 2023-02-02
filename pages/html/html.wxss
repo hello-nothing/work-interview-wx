@@ -1,0 +1,7 @@
+/* pages/html/html.wxss */
+.gotopBox {
+    position: fixed;
+    right: 40rpx;
+    bottom: 60rpx;
+    font-size: 54rpx;
+}

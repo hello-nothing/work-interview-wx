@@ -1,0 +1,47 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/html/html",
+        "pages/logs/logs",
+        "pages/js/js",
+        "pages/vue/vue",
+        "pages/other/other",
+        "pages/key/key",
+        "pages/css/css",
+        "pages/collection/collection",
+        "pages/my/my"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "学习小程序",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#707070",
+        "selectedColor": "#4e6ef2",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "/img/home.png",
+                "selectedIconPath": "/img/home1.png"
+            },
+            {
+                "pagePath": "pages/collection/collection",
+                "text": "收藏",
+                "iconPath": "/img/collection.png",
+                "selectedIconPath": "/img/collection1.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "/img/my.png",
+                "selectedIconPath": "/img/my1.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json",
+    "lazyCodeLoading": "requiredComponents"
+}
