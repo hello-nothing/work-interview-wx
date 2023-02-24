@@ -27,7 +27,6 @@
     border-radius: 10rpx;
     border: 1px solid #4e6ef2;
 }
-
 .btn .pre {
     /* float: left; */
     color: #4e6ef2;

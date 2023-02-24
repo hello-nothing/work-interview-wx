@@ -17,7 +17,9 @@
         "pages/other/key",
         "pages/vue/key",
         "pages/http/http",
-        "pages/http/key"
+        "pages/http/key",
+        "pages/wx/wx",
+        "pages/wx/key"
     ],
     "window": {
         "backgroundTextStyle": "light",
