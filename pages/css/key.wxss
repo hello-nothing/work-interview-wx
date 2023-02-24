@@ -1,0 +1,53 @@
+/* pages/css/key.wxss */
+@import '../html/key.wxss';
+
+.f1 {
+    height: 260rpx;
+}
+
+.f2 {
+    height: 600rpx;
+}
+
+.f3 {
+    height: 540rpx;
+}
+
+.f4 {
+    height: 600rpx;
+}
+
+.f6 {
+    height: 720rpx;
+}
+
+.f7 {
+    height: 300rpx;
+}
+
+.f8 {
+    height: 1100rpx;
+}
+
+.f10 {
+    height: 900rpx;
+}
+
+.s1 {
+    height: 400rpx;
+}
+
+.s2 {
+    height: 600rpx;
+}
+
+.s3 {
+    height: 500rpx;
+}
+.s4 {
+    height: 300rpx;
+}
+.content .texts {
+    font-size: 24rpx;
+    margin-bottom: 2rpx;
+}

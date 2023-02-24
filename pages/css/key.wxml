@@ -1,0 +1,393 @@
+<!--pages/cssKey/cssKey.wxml-->
+<view class="page">
+    <view class="content" wx:if="{{key==1}}">
+        <view class="title">css 选择器和优先级</view>
+        常规来说，大家都知道样式的优先级一般为 !important > style > id > class
+        <view>从左至右比较，如果是样式优先级相等，取后面出现的样式。</view>
+        <view>1、!important：最高权重</view>
+        <view>2、内联样式：1000</view>
+        <view>3、id选择器：100</view>
+        <view>4、类（class）选择器：10</view>
+        <view>5、属性选择器：10</view>
+        <view>6、伪类选择器：10</view>
+        <view>7、标签选择器：1</view>
+        <view>8、伪元素选择器：1</view>
+        <view>9、相邻兄弟选择器：0</view>
+        <view>10、子选择器：0</view>
+        <view>11、后代选择器：0</view>
+        <view>12、通配符选择器：0</view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">px，em，rem区别</view>
+        <view>
+            <text class="num">1)</text> px 相对长度单位，是相当于显示器的分辨率而言的
+        </view>
+        <view>
+            <text class="num">2)</text>em 相对长度单位，相对父元素的字体大小而言的
+        </view>
+        <view>
+            <text class="num">3)</text>rem 相对长度单位，相对html根元素的字体大小而言的，css3新增元素
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">盒子模型</view>
+        <view>通过box-sizing切换，默认为content-box(w3c盒子模型)，border-box时为IE盒子模型</view>
+        <view>
+            <text class="num">1)</text> IE盒子模型 宽度=内容(content)宽度+padding *2+border *2
+        </view>
+        <view>
+            <text class="num">2)</text>w3c盒子模型 宽度=内容(content)宽度
+        </view>
+        <image mode="aspectFit" class="b1" src="../../img/box.png"></image>
+
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">BFC</view>
+        <view> 块级格式化上下文，让BFC里面的元素与外面元素隔离，使里外元素的定位不会相互影响。</view>
+        <view>可以理解为一个有自己的布局规则的容器，其内部的布局不受外部影响</view>
+        <view class="title">触发条件:</view>
+        <view><text class="num">1)</text>根元素：body</view>
+        <view><text class="num">2)</text>元素设置浮动：float</view>
+        <view><text class="num">3)</text>元素设置绝对定位：position为absolute、fixed</view>
+        <view><text class="num">4)</text>display为：inline-block、table-cell、table-caption、flex等
+        </view>
+        <view><text class="num">5)</text>verflow为：hidden、auto、scroll</view>
+        <view class="title">特点:</view>
+        <view><text class="num">1)</text>垂直方向上，自上而下排列</view>
+        <view><text class="num">2)</text>BFC中两个相邻容器的margin会重叠</view>
+        <view><text class="num">3)</text>计算BFC高度时，会把浮动元素也计算（清除浮动方式之一）</view>
+        <view><text class="num">4)</text>BFC容器不会和浮动容器发生重叠</view>
+        <view><text class="num">5)</text>BFC容器内部元素不会影响外部元素</view>
+        <view><text class="num">6)</text>每个元素左margin与容器的左border相接触</view>
+        <view class="title">应用:</view>
+        <view>
+            <text class="num">1)</text> 防止垂直方向margin重叠
+        </view>
+        <view>
+            <text class="num">2)</text>不和浮动元素重叠
+        </view>
+        <view>
+            <text class="num">3)</text>清除元素内部浮动
+        </view>
+
+    </view>
+    <view class="content" wx:if="{{key==5}}">
+        <view class="title">实现两栏布局（左侧固定 + 右侧自适应布局）</view>
+        <view>现在有以下 DOM 结构：</view>
+        <image mode="aspectFit" class="f1" src="../../img/flex1.png"></image>
+        <view>1）利用浮动，左边元素宽度固定 ，设置向左浮动。将右边元素的 margin-left 设为固定宽度 。注意，因为右边元素的 width 默认为 auto ，所以会自动撑满父元素。</view>
+        <image mode="aspectFit" class="f2" src="../../img/f2.png"></image>
+        <view>2）同样利用浮动，左边元素宽度固定 ，设置向左浮动。右侧元素设置 overflow: hidden; 这样右边就触发了 BFC ，BFC 的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠。</view>
+        <image mode="aspectFit" class="f3" src="../../img/f3.png"></image>
+        <view>3）利用 flex 布局，左边元素固定宽度，右边的元素设置 flex: 1 。</view>
+        <image mode="aspectFit" class="f4" src="../../img/f4.png"></image>
+        <view>4）利用绝对定位，父级元素设为相对定位。左边元素 absolute 定位，宽度固定。右边元素的 margin-left 的值设为左边元素的宽度值。</view>
+        <image mode="aspectFit" class="f4" src="../../img/f5.png"></image>
+        <view>5）利用绝对定位，父级元素设为相对定位。左边元素宽度固定，右边元素 absolute 定位， left 为宽度大小，其余方向定位为 0 。</view>
+        <image mode="aspectFit" class="f6" src="../../img/f6.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==6}}">
+        <view class="title">实现圣杯布局和双飞翼布局（经典三分栏布局）</view>
+        <view class="num">圣杯布局和双飞翼布局的目的：</view>
+        <view>1）三栏布局，中间一栏最先加载和渲染（内容最重要，这就是为什么还需要了解这种布局的原因）。</view>
+        <view>2）两侧内容固定，中间内容随着宽度自适应。</view>
+        <view>3）一般用于 PC 网页。</view>
+        <view class="num">圣杯布局和双飞翼布局的技术总结：</view>
+        <view>1）使用 float 布局。</view>
+        <view>2）两侧使用 margin 负值，以便和中间内容横向重叠。</view>
+        <view>3）防止中间内容被两侧覆盖，圣杯布局用 padding ，双飞翼布局用 margin 。</view>
+        <view class="num">圣杯布局： </view>
+        <view>HTML 结构：</view>
+        <image mode="aspectFit" class="f7" src="../../img/f7.png"></image>
+        <view>CSS样式：</view>
+        <image mode="aspectFit" class="f8" src="../../img/f8.png"></image>
+        <view class="num">双飞翼布局：</view>
+        <view>HTML 结构：</view>
+        <image mode="aspectFit" class="f7" src="../../img/f9.png"></image>
+        <view>CSS样式：</view>
+        <image mode="aspectFit" class="f10" src="../../img/f10.png"></image>
+        <view class="num">上述代码中 margin-left: -100% 相对的是父元素的 content 宽度，即不包含 paddig 、 border 的宽度。</view>
+    </view>
+    <view class="content" wx:if="{{key==7}}">
+        <view class="title">水平垂直居中多种实现方式</view>
+        <view>1）利用绝对定位，设置 left: 50% 和 top: 50% 现将子元素左上角移到父元素中心位置，然后再通过 translate 来调整子元素的中心点到父元素的中心。该方法可以不定宽高。</view>
+        <image mode="aspectFit" class="s1" src="../../img/s1.png"></image>
+        <view>2）利用绝对定位，子元素所有方向都为 0 ，将 margin 设置为 auto ，由于宽高固定，对应方向实现平分，该方法必须盒子有宽高。</view>
+        <image mode="aspectFit" class="s2" src="../../img/s2.png"></image>
+        <view>3）利用绝对定位，设置 left: 50% 和 top: 50% 现将子元素左上角移到父元素中心位置，然后再通过 margin-left 和 margin-top
+            以子元素自己的一半宽高进行负值赋值。该方法必须定宽高。</view>
+        <image mode="aspectFit" class="s3" src="../../img/s3.png"></image>
+        <view>4）利用 flex ，最经典最方便的一种了，不用解释，定不定宽高无所谓的。</view>
+        <image mode="aspectFit" class="s4" src="../../img/s4.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==8}}">
+        <view class="title">line-height 如何继承？</view>
+        <view>1、父元素的 line-height 写了具体数值，比如 30px，则子元素 line-height 继承该值。</view>
+        <view>2、父元素的 line-height 写了比例，比如 1.5 或 2，则子元素 line-height 也是继承该比例。</view>
+        <view>3、父元素的 line-height 写了百分比，比如 200%，则子元素 line-height 继承的是父元素 font-size * 200% 计算出来的值。</view>
+    </view>
+    <view class="content" wx:if="{{key==9}}">
+        <view class="title"> 重排（reflow）和重绘（repaint）的理解</view>
+        <view><text class="num">重排：</text>无论通过什么方式影响了元素的几何信息(元素在视口内的位置和尺寸大小)，浏览器需要重新计算元素在视口内的几何属性，这个过程叫做重排。</view>
+        <view><text
+                class="num">重绘：</text>通过构造渲染树和重排（回流）阶段，我们知道了哪些节点是可见的，以及可见节点的样式和具体的几何信息(元素在视口内的位置和尺寸大小)，接下来就可以将渲染树的每个节点都转换为屏幕上的实际像素，这个阶段就叫做重绘。
+        </view>
+        <view class="num">如何减少重排和重绘？</view>
+        <view>1、最小化重绘和重排，比如样式集中改变，使用添加新样式类名 .class 或 cssText 。</view>
+        <view>2、批量操作 DOM，比如读取某元素 offsetWidth 属性存到一个临时变量，再去使用，而不是频繁使用这个计算属性；又比如利用 document.createDocumentFragment()
+            来添加要被添加的节点，处理完之后再插入到实际 DOM 中。</view>
+        <view>3、使用absolute或fixed使元素脱离文档流，这在制作复杂的动画时对性能的影响比较明显。</view>
+        <view>4、开启 GPU 加速，利用 css 属性 transform 、will-change 等，比如改变元素位置，我们使用 translate 会比使用绝对定位改变其 left 、top
+            等来的高效，因为它不会触发重排或重绘，transform 使浏览器为元素创建⼀个 GPU 图层，这使得动画元素在一个独立的层中进行渲染。当元素的内容没有发生改变，就没有必要进行重绘。</view>
+    </view>
+    <view class="content" wx:if="{{key==10}}">
+        <view class="title">flex布局</view>
+        <view>Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为 Flex 布局。注意，设为 Flex
+            布局以后，子元素的float、clear和vertical-align属性将失效。</view>
+        <view class="num">基本概念： </view>
+        <view>采用 Flex 布局的元素，称为 Flex 容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为 Flex
+            项目（flex item），简称"项目"。</view>
+        <view class="num">容器属性：（和display:flex写在一起的）</view>
+        <view>1、flex-direction：决定主轴的方向（即项目的排列方向）</view>
+        <view class="texts">row（默认值）：主轴为水平方向，起点在左端。</view>
+        <view class="texts">row-reverse：主轴为水平方向，起点在右端。</view>
+        <view class="texts">column：主轴为垂直方向，起点在上沿。</view>
+        <view class="texts">column-reverse：主轴为垂直方向，起点在下沿。</view>
+        <view>2、flex-wrap：默认情况下，项目都排在一条线（又称"轴线"）上。flex-wrap属性定义，如果一条轴线排不下，如何换行。</view>
+        <view class="texts">nowrap（默认）：不换行。</view>
+        <view class="texts">wrap：换行，第一行在上方。</view>
+        <view class="texts">wrap-reverse：换行，第一行在下方。</view>
+        <view>3、flex-flow</view>
+        <view class="texts">flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap</view>
+        <view>4、justify-content：定义了项目在主轴上的对齐方式。</view>
+        <view class="texts">flex-start（默认值）：左对齐。</view>
+        <view class="texts">flex-end：右对齐。</view>
+        <view class="texts">center： 居中。</view>
+        <view class="texts">space-between：两端对齐，项目之间的间隔都相等。</view>
+        <view class="texts">space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</view>
+        <view>5、align-items：定义项目在交叉轴上如何对齐。</view>
+        <view class="texts">flex-start：交叉轴的起点对齐。</view>
+        <view class="texts">flex-end：交叉轴的终点对齐。</view>
+        <view class="texts">center：交叉轴的中点对齐。</view>
+        <view class="texts">baseline: 项目的第一行文字的基线对齐。</view>
+        <view class="texts">stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</view>
+        <view>6、align-content：定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</view>
+        <view class="texts">flex-start：与交叉轴的起点对齐。</view>
+        <view class="texts">flex-end：与交叉轴的终点对齐。</view>
+        <view class="texts">center：与交叉轴的中点对齐。</view>
+        <view class="texts">space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</view>
+        <view class="texts">space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</view>
+        <view class="texts">stretch（默认值）：轴线占满整个交叉轴。</view>
+        <view class="num">项目的属性：（flex盒子下的子元素）</view>
+        <view>1、order：属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。</view>
+        <view>2、flex-grow：属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</view>
+        <view class="texts">如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+        </view>
+        <view>3、flex-shrink：属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</view>
+        <view class="texts">如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。负值对该属性无效。
+        </view>
+        <view>4、flex-basis：属性定义了在分配多余空间之前，项目占据的主轴空间（main
+            size）。</view>
+        <view class="texts">浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+        </view>
+        <view>5、flex：flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。</view>
+        <view class="texts">该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+            建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</view>
+        <view>6、align-self：属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+        </view>
+        <view class="texts">该属性可能取6个值，除了auto，其他都与align-items属性完全一致。</view>
+    </view>
+    <view wx:if="{{key==11}}">
+        <view class="content">
+            <view class="title">前端常见的布局方式</view>
+        </view>
+        <view class="content">
+            <view class="num">静态布局</view>
+            <view>静态布局是最为原始的布局方式，没有什么技术性可言，往往是计算机行业刚刚入门的小白使用的布局方式。制作的网页上的元素尺寸一律以px为单位。</view>
+            <view class="num">特点</view>
+            <view>页面上的布局是按最初写代码时候的布局方式进行布局的，常规的pc网站是进行设置了宽度值进行布局的，不会随着pc端的屏幕的大小而变化。</view>
+            <view class="num">优点</view>
+            <view>
+                这种布局方式不管是对资深的前端开发工程师还是刚入门的小白来说都是最简单的，最让人容易以接受、学习的，没有我们所说的兼容性的问题。这种布局方式大多用在门户网站和企业的官网上，这些官网的设备的尺寸是固定的，这种布局方式往往是最简单的方法。
+            </view>
+            <view class="num">缺点</view>
+            <view>不会随着pc端的屏幕大小而变化。</view>
+        </view>
+        <view class="content">
+            <view class="num">弹性布局（flexbox）</view>
+            <view>
+                弹性布局可以简便、完整、响应的实现各种页面上的布局。与静态不同的是，使用em或rem单位（lem=16px，1rem=10px）进行相对布局，相对使用百分比更加方便、灵活，相应同时支持浏览器的字体大小调整和缩放的等正常显示。
+            </view>
+            <view class="num">优点</view>
+            <view>1、适应性强，在做多种不同的屏幕分辨率不同的界面是非常使用。</view>
+            <view>2、随意按照宽度、比例划分元素的宽高。</view>
+            <view>3、可以轻松的改变元素的显示顺序。</view>
+            <view>4、网页布局实现快捷，维护起来更加容易。</view>
+            <view>5、如果做移动端时，如果客户对细微的之处的要求不高，使用弹性布局进行制作是最好的选择，一份css+一份js调节font-size搞定。</view>
+            <view class="num">缺点</view>
+            <view>浏览器兼容性较差，只能兼容到IE9及以上。</view>
+        </view>
+        <view class="content">
+            <view class="title">自适应布局（bootstrap）</view>
+            <view>
+                自适应布局分别为不同屏幕不同分辨率定义布局，即是创建多个静态页面，每个静态页面对应一个屏幕分辨率的一个范围内。在改变不同的屏幕分辨率可以切换到不同的静态布局上，但是布局中的元素位置会发生改变，但是在每个静态布局中，页面中的元素不会随着窗口大小的调整发生变化。使用
+                @media 媒体查询给不同尺寸和介质的设备切换不同的样式。在优秀的响应范围设计下可以给适配范围内的设备最好的体验，在同一个设备下实际还是固定的布局。</view>
+            <view class="num">优点</view>
+            <view>1、对网站的复杂程度兼容性更大。</view>
+            <view>2、对开发工程师来说制作的成本代价更低。</view>
+            <view>3、代码执行效果更高效。</view>
+            <view>4、测试时更加容易，运营相对更加精准。</view>
+            <view class="num">缺点</view>
+            <view>在现如今的移动端设计百花齐放的时期之下，同一个网站往往需要为不同的设备制作不同的页面，不但会增加开发成本，还会因为客户的需求改变时，可能会改动多套代码、流程相比较来说较繁琐。</view>
+        </view>
+        <view class="content">
+            <view class="title">流式布局（fluid）</view>
+            <view>流式布局的布局方式是页面的元素的宽度按照屏幕的分辨率进行适配的调整，但是整体布局不变，也称之为栅栏系统。使用%百分比定义宽度，高度大都是用px来固定住，可以根据可视区域 (viewport)
+                和父元素的实时尺寸进行调整，尽可能的适应各种分辨率。往往配合 max-width/min-width 等属性控制尺寸流动范围以免过大或者过小影响阅读。</view>
+            <view class="num">缺点</view>
+            <view>屏幕大小变化时，页面元素也随之变化但是布局不变。这就会因为如果屏幕太大或太小都会布局时元素无法正常显示。</view>
+        </view>
+        <view class="content">
+            <view class="title">响应式布局</view>
+            <view>
+                响应式布局是css3增加的新布局方式，该布局方式2010年提出来的一个概念，说白了就是一个网站能够兼容多个终端——而不是为每个终端做一个特定的版本。这个概念是为解决移动互联网浏览而诞生的。响应式布局可以为不同终端的用户提供更加舒适的界面和更好的用户体验，而且随着目前大屏幕移动设备的普及，用“大势所趋”来形容也不为过。响应式几乎成为优秀页面布局的标准。
+            </view>
+            <view class="num">设计方法</view>
+            <view>媒体查询+流式布局。通常使用@media媒体查询，和网格系统配合相对布局单位进行布局，实际上说白了就是综合响应式等技术通过css给单一网页不同设备分辨率返回不式时的技术。</view>
+            <view class="num">优点</view>
+            <view>适应pc端和移动端，如果有足够的耐心，页面效果会很完美。</view>
+            <view class="num">缺点</view>
+            <view>只能适应主流的宽高，如果匹配足够多的设备屏幕的大小，对于工程师来说工作量不小，设计更需要多个版本，工作量增大。</view>
+        </view>
+        <view class="content">
+            <view class="title">浮动布局</view>
+            <view>浮动布局进行调用浮动属性改变页面中元素的位置，浮动布局应该是目前各大网站用的最多的一种布局方式了，但是也特别复杂。浮动元素是脱离文档流的，但不脱离文本流。浮动元素有左浮动（float :
+                left）和右浮动（float : right）两种</view>
+            <view class="num">优点</view>
+            <view>兼容性比较好</view>
+            <view class="num">缺点</view>
+            <view>浮动带来的影响比较多，页面宽度不够的时候会影响布局</view>
+        </view>
+        <view class="content">
+            <view class="title">定位布局</view>
+            <view>定位布局时利用position属性控制页面元素设置一些不规则布局。</view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==12}}">
+        <view class="title">可继承和不可继承样式</view>
+        <view class="num">不可继承</view>
+        <view>display</view>
+        <view>position、top、right、left、bottom</view>
+        <view>width、height、margin、padding、border</view>
+        <view>background、background-color</view>
+        <view class="num">可继承</view>
+        <view>font-size、font-weight、font-family</view>
+        <view>line-height、text-align、color</view>
+        <view>visibility</view>
+        <view>cursor</view>
+    </view>
+    <view class="content" wx:if="{{key==13}}">
+        <view class="title">block和inline的区别？</view>
+        <view> <text class="num">block：</text> 独占一行，可设置宽高、margin、padding</view>
+        <view> <text class="num">inline：</text> 不独占一行，不可设置宽高，可设置水平margin、padding但不能设置垂直方向margin、padding</view>
+    </view>
+    <view class="content" wx:if="{{key==14}}">
+        <view class="title">隐藏元素的方式</view>
+        <view>1、display：none 直接消失</view>
+        <view>2、visibility：hidden 不可见，但占着位置</view>
+        <view>3、opacity：0 透明不可见，但占着位置</view>
+        <view>4、position：absolute 绝对定位并移出可见范围</view>
+        <view>5、z-index：-999 将层级设置在底部，让他不可见</view>
+    </view>
+    <view class="content" wx:if="{{key==15}}">
+        <view class="title">link和@import区别</view>
+        <view>1、link可以加载css、rss；@import只能加载css</view>
+        <view>2、link在页面载入时同时加载；@import在页面载入后再加载</view>
+        <view>3、link无兼容问题；@import是新语法，低版本浏览器不兼容</view>
+        <view>4、link标签可被js操作dom去除；@import不行</view>
+    </view>
+    <view class="content" wx:if="{{key==16}}">
+        <view class="title">transition和animation的区别</view>
+        <view><text class="num">transition</text>过度样式，需要被动触发</view>
+        <view><text class="num">animation</text>动画样式，不需要被动触发，可以自动触发，可结合@keyframe进行多个关键帧的动画</view>
+    </view>
+    <view class="content" wx:if="{{key==17}}">
+        <view class="title">伪元素和伪类</view>
+        <view><text class="num">伪元素</text>顾名思义，假的元素，只会显示其内容，但是并不会在dom树中找到他</view>
+        <view>::before、::after、::first-child、::nth-child(1)等</view>
+        <view><text class="num">伪类</text>将一些效果加到节点上，例如鼠标点击，悬浮等</view>
+        <view>:hover、:active、:focus等</view>
+    </view>
+    <view class="content" wx:if="{{key==18}}">
+        <view class="title">CSS3新样式</view>
+        <view><text class="num">:not(.cc)</text>新增的选择器，标识所有class不是“cc”的节点</view>
+        <view><text class="num">border-radius</text>边框圆角</view>
+        <view><text class="num">box-shadow</text>阴影</view>
+        <view><text class="num">text-shadow</text>文字阴影</view>
+        <view><text class="num">text-decoration</text>文字样式渲染</view>
+        <view><text class="num">gradient</text>线性渐变</view>
+        <view><text class="num">transform</text>可设置变形、放大缩小、旋转、定位</view>
+        <view><text class="num">flex</text>flex布局</view>
+        <view></view>
+    </view>
+    <view class="content" wx:if="{{key==19}}">
+        <view class="title">CSS提升性能方式</view>
+        <view>1、css代码压缩</view>
+        <view>2、link代替@import</view>
+        <view>3、避免多层选择器</view>
+        <view>4、动画CPU加速</view>
+    </view>
+    <view class="content" wx:if="{{key==20}}">
+        <view class="title">为何使用less、sass</view>
+        <view>less、sass是css预处理器，使用他们的变量、继承、运算、函数等功能，大大提高样式编写效率，大多数打包工具最后都会将他们解析为原始css样式代码。</view>
+    </view>
+
+    <view class="content" wx:if="{{key==21}}">
+        <view class="title">postCss是啥</view>
+        <view>后置css，将解析后的css样式代码进行处理，提高其在各个浏览器的兼容性，常用做法是为每个浏览器样式添加特有前缀</view>
+    </view>
+    <view class="content" wx:if="{{key==22}}">
+        <view class="title">单行、多行溢出省略号</view>
+        <view class="num">单行</view>
+        <view>overflow: hidden; </view>
+        <view>text-overflow: ellipsis;</view>
+        <view>white-space: nowrap;</view>
+        <view class="num">多行</view>
+        <view>overflow: hidden;</view>
+        <view>text-overflow: ellipsis;</view>
+        <view>display: -webkit-box;</view>
+        <view>-webkit-box-orient: vertical;</view>
+        <view>-webkit-line-clamp: 3(几行就写几);</view>
+    </view>
+    <view class="content" wx:if="{{key==23}}">
+        <view class="title">自适应布局方式</view>
+        <view><text class="num">rem</text>监听不同窗口宽度，为根节点设置对应font-size，并进而使所有使用到rem的样式得到变化（rem的“r”就是“root”）</view>
+        <view><text class="num">媒体查询@media</text>通过监听不同的窗口宽度，展示不同的效果</view>
+    </view>
+    <view class="content" wx:if="{{key==24}}">
+        <view class="title">CSS工程化</view>
+        <view>1、CSS实现模块化</view>
+        <view>2、CSS预处理器</view>
+        <view>3、CSS的postCSS</view>
+        <view>4、CSS代码压缩</view>
+    </view>
+    <view class="content" wx:if="{{key==25}}">
+        <view class="title">实现一个三角形</view>
+        <view>宽度设置0，四个border中，透明掉三个，剩一个显示，就是三角形</view>
+        <image src="../../img/c0.png" mode="aspectFit"></image>
+    </view>
+    <view class="content" wx:if="{{key==26}}">
+        <view class="title">实现扇形</view>
+        <view>跟三角形差不多，只不过多设置一个border-radius</view>
+        <image src="../../img/c1.png" mode="aspectFit"></image>
+    </view>
+    <view class="content" wx:if="{{key==27}}">
+        <view class="title">如何显示小于12px的文字？</view>
+        <view>使用transform: scale()进行缩小</view>
+        <image src="../../img/c3.png" mode="aspectFit"></image>
+    </view>
+    <view class="btn">
+        <view class="pre" bindtap="preQuestion">上一题</view>
+        <view bindtap="nextQuestion">下一题</view>
+    </view>
+</view>

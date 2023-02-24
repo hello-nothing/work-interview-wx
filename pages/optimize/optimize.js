@@ -1,32 +1,50 @@
-// pages/key/key.js
+// pages/optimize/optimize.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        key: 1,
-        type: 'html'
+        list: [{
+                id: 1,
+                name: '前端优化的原则'
+            },
+            {
+                id: 2,
+                name: '网页内容的优化'
+            },
+            {
+                id: 3,
+                name: 'css的优化'
+            },
+            {
+                id: 4,
+                name: 'JavaScript的优化'
+            },
+            {
+                id: 5,
+                name: 'webpack打包优化'
+            },
+            {
+                id:6,
+                name:'SEO优化'
+            }
+        ]
     },
-
+    goLook(e) {
+        let id = e.currentTarget.dataset.id;
+        console.log(id)
+        wx.navigateTo({
+            url: `/pages/optimize/key?key=${id}`,
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log(options)
-        this.setData({
-            key: Number(options.key),
-            type: options.type
-        })
+
     },
-    nextQuestion(e) {
-        let value = Number(this.data.key) + 1
-        console.log(value)
-        this.setData({
-            key: value
-        })
-        console.log(this.data.key)
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

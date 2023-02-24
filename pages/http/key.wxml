@@ -1,0 +1,144 @@
+<!--pages/http/key.wxml-->
+<view class="page">
+    <view class="content" wx:if="{{key==1}}">
+        <view class="title">http 状态码</view>
+        <view class="num">状态码分类</view>
+        <view>1xx - 服务器收到请求。</view>
+        <view>2xx - 请求成功，如 200。</view>
+        <view>3xx - 重定向，如 302。</view>
+        <view>4xx - 客户端错误，如 404。</view>
+        <view>5xx - 服务端错误，如 500。</view>
+        <view class="num">常见状态码</view>
+        <view>200 - 成功。</view>
+        <view>301 - 永久重定向（配合 location，浏览器自动处理）。</view>
+        <view>302 - 临时重定向（配合 location，浏览器自动处理）。</view>
+        <view>304 - 资源未被修改。</view>
+        <view>403 - 没权限。</view>
+        <view>404 - 资源未找到。</view>
+        <view>500 - 服务器错误。</view>
+        <view>504 - 网关超时。</view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+        <view></view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">GET方法</view>
+        <view>GET方法用于使用给定的URI从给定服务器中检索信息，即从指定资源中请求数据。使用GET方法的请求应该只是检索数据，并且不应对数据产生其他影响。</view>
+        <view>在GET请求的URL中发送查询字符串（名称/值对），需要这样写：'/test/demo form.php?name1=value1&name2=value2'</view>
+        <view>GET请求是可以缓存的，我们可以从浏览器历史记录中查找到GET请求，还可以把它收藏到书签中；且GET请求有长度限制，仅用于请求数据（不修改）。</view>
+        <view> <text class="num">注意</text> 因GET请求的不安全性，在处理敏感数据时，绝不可以使用GET请求。</view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">POST方法</view>
+        <view>POST方法用于将数据发送到服务器以创建或更新资源，它要求服务器确认请求中包含的内容作为由URI区分的Web资源的另一个下属。</view>
+        <view>POST请求永远不会被缓存，且对数据长度没有限制；我们无法从浏览器历史记录中查找到POST请求。</view>
+        <view class="num">为什么post请求会发送两次请求?</view>
+        <view>1.第一次请求为options预检请求，状态码为:204</view>
+        <view>作用1: 询问服务器是否支持修改的请求头，如果服务器支持，则在第二次中发送真正的请求</view>
+        <view>作用2: 检测服务器是否为同源请求,是否支持跨域</view>
+        <view>2.第二次为真正的post请求</view>
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">PUT方法</view>
+        <view>PUT方法用于将数据发送到服务器以创建或更新资源，它可以用上传的内容替换目标资源中的所有当前内容。
+        </view>
+        <view>它会将包含的元素放在所提供的URI下，如果URI指示的是当前资源，则会被改变。如果URI未指示当前资源，则服务器可以使用该URI创建资源。</view>
+    </view>
+    <view class="content" wx:if="{{key==5}}">
+        <view class="title">DELETE方法</view>
+        <view>DELETE方法用来删除指定的资源，它会删除URI给出的目标资源的所有当前内容。
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==6   }}">
+        <view class="title">Get和Post的区别</view>
+        <view class="num">GET</view>
+        <view>GET是获取的意思，顾名思义就是获取信息。GET是默认的HTTP请求方法。 </view>
+        <view>
+            GET方法把参数通过key/value形式存放在URL里面，如果参数是英文数字原样显示，如果是中文或者其他字符加密（Base64）URL长度一般有限制所以GET方法的参数长度不能太长。由于参数显示再地址栏所以不安全，一般需要保密的请求不使用GET。
+        </view>
+        <view class="num">POST</view>
+        <view>POST是邮件的意思，顾名思义就像一封信一样将参数放在信封里面传输。它用于修改服务器上的数据，一般这些数据是应该保密的，就像信件一样，信的内容只能收信的人看见。</view>
+        <view>例如当用户输入账号和密码登录时账号和密码作为参数通过HTTP请求传输到服务器，这时候肯定不能用GET方法将账号密码直接显示再URL上，这时候就应该用POST方法保证数据的保密性。</view>
+        <view class="num">区别</view>
+        <view> <text class="num">应用场景：</text> (GET 请求是一个幂等的请求)一般 Get 请求用于对服务器资源不会产生影响的场景，比如说请求一个网页的资源。(而 Post
+            不是一个幂等的请求)一般用于对服务器资源会产生影响的情景，比如注册用户这一类的操作。（幂等是指一个请求方法执行多次和仅执行一次的效果完全相同）</view>
+        <view><text class="num">是否缓存：</text>因为两者应用场景不同，浏览器一般会对 Get 请求缓存，但很少对 Post 请求缓存。</view>
+        <view><text class="num">传参方式不同：</text>Get 通过查询字符串传参，Post 通过请求体传参。
+        </view>
+        <view><text class="num">安全性：</text>Get 请求可以将请求的参数放入 url 中向服务器发送，这样的做法相对于 Post 请求来说是不太安全的，因为请求的 url 会被保留在历史记录中。
+        </view>
+        <view><text class="num">请求长度：</text>浏览器由于对 url 长度的限制，所以会影响 get 请求发送数据时的长度。这个限制是浏览器规定的，并不是 RFC 规定的。/view>
+            <view><text class="num">参数类型：</text>get参数只允许ASCII字符，post 的参数传递支持更多的数据类型(如文件、图片)。
+            </view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==7}}">
+        <view class="title">POST和PUT请求的区别</view>
+        <view>PUT请求是向服务器端发送数据，从而修改数据的内容，但是不会增加数据的种类等，也就是说无论进行多少次PUT操作，其结果并没有不同，可以理解为<text class="num">更新数据</text></view>
+
+        <view>POST请求是向服务器端发送数据，该请求会改变数据的种类等资源，它会创建新的内容，可以理解为<text class="num">创建数据</text></view>
+    </view>
+    <view class="content" wx:if="{{key==8}}">
+        <view class="title">常见的HTTP请求头和响应头</view>
+        <view class="num">请求头（HTTP Request Header）</view>
+        <view>Accept：浏览器能够处理的内容类型</view>
+        <view>Accept-Charset：浏览器能够显示的字符集</view>
+        <view>Accept-Encoding：浏览器能够处理的压缩编码</view>
+        <view>Accept-Language：浏览器当前设置的语言</view>
+        <view>Connection：浏览器与服务器之间连接的类型</view>
+        <view>Cookie：当前页面设置的任何Cookie</view>
+        <view>Host：发出请求的页面所在的域</view>
+        <view>Referer：发出请求的页面的URL</view>
+        <view>User-Agent：浏览器的用户代理字符串</view>
+        <view class="num">响应头（HTTP Responses Header）</view>
+        <view>Date：表示消息发送的时间，时间的描述格式由rfc822定义</view>
+        <view>server：服务器名称</view>
+        <view>Connection：浏览器与服务器之间连接的类型</view>
+        <view>Cache-Control：控制HTTP缓存</view>
+        <view>content-type：表示后面的文档属于什么MIME类型</view>
+    </view>
+    <view class="content" wx:if="{{key==9}}">
+        <view class="title">Content-Type属性</view>
+        <view>常见的 Content-Type 属性值有以下四种：</view>
+        <view class="num">1）application/x-www-form-urlencoded</view>
+        <view>浏览器的原生 form 表单，如果不设置 enctype 属性，那么最终就会以 application/x-www-form-urlencoded 方式提交数据。该种方式提交的数据放在 body 里面，数据按照
+            key1=val1&key2=val2 的方式进行编码，key 和 val 都进行了 URL转码。</view>
+        <view class="num">2）multipart/form-data</view>
+        <view>该种方式也是一个常见的 POST 提交方式，通常表单上传文件时使用该种方式。</view>
+        <view class="num">3）application/json</view>
+        <view>服务器消息主体是序列化后的 JSON 字符串。</view>
+        <view class="num">4）text/xml</view>
+        <view>该种方式主要用来提交 XML 格式的数据。</view>
+    </view>
+    <view class="content" wx:if="{{key==10}}">
+        <view class="title">HTTP状态码304</view>
+        <view class="num">为什么会有304？</view>
+        <view>服务器为了提高网站访问速度，对之前访问的部分页面指定缓存机制，当客户端在此对这些页面进行请求，服务器会根据缓存内容判断页面与之前是否相同，若相同便直接返回304，此时客户端调用缓存内容，不必进行二次下载。
+        </view>
+        <view>状态码304不应该认为是一种错误，而是对客户端有缓存情况下服务端的一种响应。</view>
+        <view>
+            搜索引擎蜘蛛会更加青睐内容源更新频繁的网站。通过特定时间内对网站抓取返回的状态码来调节对该网站的抓取频次。若网站在一定时间内一直处于304的状态，那么蜘蛛可能会降低对网站的抓取次数。相反，若网站变化的频率非常之快，每次抓取都能获取新内容，那么日积月累，的回访率也会提高。
+        </view>
+        <view class="num">产生较多304状态码的原因</view>
+        <view>页面更新周期长或不更新</view>
+        <view>纯静态页面或强制生成静态html</view>
+        <view class="num">304状态码出现过多会造成以下问题</view>
+        <view>网站快照停止；</view>
+        <view>收录减少；</view>
+        <view>权重下降；</view>
+    </view>
+    <view class="content" wx:if="{{key==11}}">
+        <view class="title">Ajax</view>
+        <view>Ajax(阿贾克斯)：全称 Asynchronous Javascript And XML(异步的js与xml)</view>
+        <view>A : Asynchronous 异步</view>
+        <view>J：Javascript</view>
+        <view>A ：And</view>
+        <view>X : XML 与 XMLHttpRequest</view>
+        <view>XML：解决跨平台数据传输。</view>
+        <view>在JSON没有出来以前, 网络传输主要以XML格式数据为主。 后来JSON问世，逐渐取代XML。 但是由于ajax技术出来的比json早，因此xml这个称呼一直保留至今</view>
+        <view>解释：用js发送异步的网络请求</view>
+    </view>
+</view>

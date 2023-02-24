@@ -1,0 +1,357 @@
+<!--pages/key/key.wxml-->
+<view class="page">
+    <view wx:if="{{key == 1}}">
+        <view class="content">
+            <view class="title">语义化的理解</view>
+            <view>HTML语义化是指在用标签构建HTML页面时避免大篇幅地使用无语义的标签。</view>
+        </view>
+        <view class="content">
+            <view class="title">语义化的好处</view>
+            <view>
+                <text class="num">1)</text>让人更容易阅读，有利于开发和维护，代码更具有可读性，更容易维护
+            </view>
+            <view>
+                <text class="num">2)</text>让搜索引擎更容易读懂，加上爬虫依赖于标签来确定上下文和各个关键字的权重（SEO），语义化有助于爬虫抓取更多的有效信息
+            </view>
+            <view>
+                <text class="num">3)</text>有利于用户阅读，样式文件未加载时页面结构清晰
+            </view>
+            <view>
+                <text class="num">4)</text>有利于屏幕阅读器解析，比如盲人阅读器会根据语义渲染网页
+            </view>
+            <view class="num">SEO的TDK——title description keywords</view>
+        </view>
+        <view class="content">
+            <view class="title">语义化表现形式-html5新标签</view>
+            <view>
+                <text class="num">1)</text>header-页眉、footer-页脚、aside-附属信息、nav-导航链接、section、article
+            </view>
+            <view>
+                <text class="num">2)</text>caption-表格标题、thead-表头、tbody-表格内容、tfoot-表尾
+            </view>
+            <view>
+                <text class="num">3)</text>h1~h6，作为标题使用，且重要性递减
+            </view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">px，em，rem区别</view>
+        <view>
+            <text class="num">1)</text> px 相对长度单位，是相当于显示器的分辨率而言的
+        </view>
+        <view>
+            <text class="num">2)</text>em 相对长度单位，相对父元素的字体大小而言的
+        </view>
+        <view>
+            <text class="num">3)</text>rem 相对长度单位，相对html根元素的字体大小而言的，css3新增元素
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">盒子模型</view>
+        <view>通过box-sizing切换，默认为content-box(w3c盒子模型)，border-box时为IE盒子模型</view>
+        <view>
+            <text class="num">1)</text> IE盒子模型 宽度=内容宽度+padding *2+border *2
+        </view>
+        <view>
+            <text class="num">2)</text>w3c盒子模型 宽度=内容宽度
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">BFC</view>
+        <view> 块级格式化上下文，让BFC里面的元素与外面元素隔离，使里外元素的定位不会相互影响。</view>
+        <view>触发条件:</view>
+        <view>根元素、overflow不为visible、float、 position:absolute或fixed、display:inline-block或table</view>
+        <view>应用:</view>
+        <view>
+            <text class="num">1)</text> 防止垂直方向margin重叠
+        </view>
+        <view>
+            <text class="num">2)</text>不和浮动元素重叠
+        </view>
+        <view>
+            <text class="num">3)</text>清除元素内部浮动
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==5}}">
+        <view class="title">target和currentTarget区别</view>
+        <view><text class="num">1)</text> target是事件的真正目标</view>
+        <view><text class="num">2)</text> currentTarget是事件处理程序注册的元素</view>
+    </view>
+    <view class="content" wx:if="{{key==6}}">
+        <view class="title">document.ready和window.onload区别</view>
+        <view>document.ready是dom树加载后执行，而window.onload是整个页面资源加载完后执行，所以document.ready比window.onload先执行</view>
+    </view>
+    <view class="content" wx:if="{{key==7}}">
+        <view class="title">事件流</view>
+        <view>DOM2事件流分为三个部分:事件捕获、处于目标、事件冒泡。</view>
+        <view><text class="num">1)</text> 事件冒泡是指事件从执行的元素开始往上层遍历执行</view>
+        <view><text class="num">2)</text> 事件捕获是指事件从根元素开始从外向里执行</view>
+        <view>点击按钮后，事件冒泡的执行顺序是:
+            button->body->html->document</view>
+        <view>事件捕获的执行顺序则相反:
+            document->html->body->button</view>
+    </view>
+    <view class="content" wx:if="{{key==8}}">
+        <view class="title">doctype作用，严格模式（标准模式）和怪异模式 （混杂模式）的区别</view>
+        <view>
+            !doctype声明位于文档的最前面，在html之前显示。用于告诉浏览器的解析器，用什么文档类型规范来解析文档。
+        </view>
+        <view class="title">严格模式（标准模式）和怪异模式 （混杂模式）</view>
+        <view> <text class="num">严格模式:</text> 按浏览器支持的最高标准运行</view>
+        <view> <text class="num">怪异模式:</text> 页面是一种比较宽松的向后兼容的方式显示</view>
+        <view> 严格模式默认用浏览器支持的最高版本解析，怪异模式以宽松的向后兼容的方式解析，doctype不存在或格式不正确时会让文档以怪异模式呈现</view>
+    </view>
+    <view class="content" wx:if="{{key==9}}">
+        <view class="title">水平垂直居中的实现方式</view>
+        <view>
+            <view><text class="num">//方法一</text></view>
+            <view>display:flex;</view>
+            <view>justify-content:center;</view>
+            <view>align-items:center;</view>
+            <view><text class="num">//方法二</text></view>
+            <view>display:table;</view>
+            <view>vertical-align:center;</view>
+            <view><text class="num">//方法三:适用于已知宽高且父元素定位不为static</text></view>
+            <view>postion:absolute;</view>
+            <view>width:100px;</view>
+            <view>height:100px;</view>
+            <view>top:50%;</view>
+            <view>left:50%;</view>
+            <view>margin:-50px 0 0 -50px;</view>
+            <view><text class="num">//方法四</text></view>
+            <view>position:absolute;</view>
+            <view>top:50%;</view>
+            <view>left:50%;</view>
+            <view>transform:translateY(-50%) translateX(-50%);</view>
+            <view><text class="num">//方法五:适用于行内元素</text></view>
+            <view>display:inline-block;</view>
+            <view>width:100px;</view>
+            <view>height:100px;</view>
+            <view>text-align:center;</view>
+            <view>line-height:100px;</view>
+            <view><text class="num">//方法六:适用于块级元素</text></view>
+            <view>display:block;</view>
+            <view>height:100px;</view>
+            <view>margin:0 auto;</view>
+            <view> line-height:100px;</view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==10}}">
+        <view class="title">回流和重绘区别</view>
+        <view>回流：当渲染树中元素尺寸、结构或者某些属性发生变化时，浏览器重新渲染部分或全部页面的情况叫回流。 </view>
+        <view>下列元素改变引发回流:</view>
+        <view><text class="num">1)</text>getBoundingClientRect()</view>
+        <view><text class="num">2)</text>scrollTo()</view>
+        <view><text class="num">3)</text>scrollIntoView()或者scrollIntoViewIfneeded</view>
+        <view><text class="num">4)</text>clientTop、clientLeft、clientWidth、clientHeight</view>
+        <view><text class="num">5)</text>offsetTop、offsetLeft、offsetWidth、offsetHeight</view>
+        <view><text class="num">6)</text>scrollTop、scrollLeft、scrollWidth、scrollHeight</view>
+        <view><text class="num">7)</text>getComputedStyle()</view>
+        <view>重绘：当页面中元素样式变化不会改变它在文档流中的位置时，即不会使元素的几何属性发生变化，浏览器会将新样式赋给它并重新绘制页面(比如color、backgroundColor)</view>
+        <view><text class="num">注意：</text>频繁回流和重绘会引起性能问题</view>
+        <view>避免方法：</view>
+        <view><text class="num">1)</text>减少table布局使用</view>
+        <view><text class="num">2)</text>减少css表达式的使用(如calc())</view>
+        <view><text class="num">3)</text>减少DOM操作，用documentFragment代替</view>
+        <view><text class="num">4)</text>将元素设为display:none;操作结束后把它显示回来，因为display:none不会引发回流重绘</view>
+        <view><text class="num">5)</text>避免频繁读取会引发回流重绘的元素，如果需要最好是缓存起来</view>
+        <view><text class="num">6)</text>对复杂动画元素使用绝对定位，使它脱离文档流</view>
+        <view><text class="num">7)</text>减少使用行内样式</view>
+
+    </view>
+    <view wx:if="{{key==11}}">
+        <view class="content">
+            <view class="title">从浏览器地址栏输入 url 到请求返回发生了什么</view>
+            <view><text class="num">1)</text>URL输入：浏览器对输入的url进行判断是否合法</view>
+            <view><text class="num">2)</text>DNS 域名解析</view>
+            <view><text class="num">3)</text>TCP 连接</view>
+            <view><text class="num">4)</text>http 请求</view>
+            <view><text class="num">5)</text>浏览器渲染页面</view>
+        </view>
+        <view class="content">
+            <view class="title">为什么需要三次握手</view>
+            <view>三次握手：指建立一个TCP连接时，需要客户端和服务器总共发送3个包
+
+                主要作用就是为了确认双方的接收能力和发送能力是否正常、指定自己的初始化序列号为后面的可靠性传送做准备。</view>
+            <view class="title">总是要问：为什么需要三次握手，两次不行吗？ </view>
+            <view><text class="num">1)</text>
+                如果是两次握手，发送端可以确定自己发送的信息能对方能收到，也能确定对方发的包自己能收到，但接收端只能确定对方发的包自己能收到 无法确定自己发的包对方能收到</view>
+            <view> <text class="num">2)</text>并且两次握手的话, 客户端有可能因为网络阻塞等原因会发送多个请求报文，延时到达的请求又会与服务器建立连接，浪费掉许多服务器的资源</view>
+        </view>
+        <view class="content">
+            <view class="title">DNS域名解析</view>
+            <view>DNS是一个域名和IP一一映射的数据库，DNS解析就是域名到IP地址的转换过程。从请求主机到本地 DNS 服务器的查询是递归查询，DNS 服务器获取到所需映射的查询过程是迭代查询。</view>
+            <view>过程：</view>
+            <view><text class="num">1)</text>主机想知道某个域名的ip，首先向本地域名服务器发起递归查询。本地域名服务器没有对应的映射，向根域名服务器发起请求</view>
+            <view><text class="num">2)</text>根域名服务器告诉本地域名服务器顶级域名服务器的ip地址，让他去顶级域名服务器那里查询</view>
+            <view><text class="num">3)</text>本地域名服务器向顶级域名服务器发起请求，顶级域名服务器告诉他权限域名服务器的ip地址</view>
+            <view><text class="num">4)</text>权限域名服务器告知本地域名服务器目的ip地址</view>
+            <view><text class="num">5)</text>本地域名服务器返回主机所要解析的IP地址并缓存到本地供下次查询使用</view>
+            <view class="title">了解</view>
+            <view><text class="num">1)</text>DNS存在多级缓存：浏览器缓存，系统缓存，路由器缓存，IPS服务器缓存，根域名服务器缓存，顶级域名服务器缓存，主域名服务器缓存
+            </view>
+            <view><text
+                    class="num">2)</text>DNS负载均衡：DNS返回的IP地址并非每次都一样，因为用户所请求的资源并不一定位于同一台机器，DNS会根据每台机器的负载量、该机器离用户地理位置的距离等因素返回一个合适的机器的IP给用户，这种过程是DNS负载均衡，又叫做DNS重定向。
+            </view>
+            <view><text
+                    class="num">3)</text>CDN(内容分发网络)就是利用DNS负载均衡技术。DNS服务器会返回一个跟用户最接近的点的IP地址给用户，CDN节点的服务器负责响应用户的请求，提供所需的内容。
+            </view>
+        </view>
+
+    </view>
+    <view class="content" wx:if="{{key==12}}">
+        <view class="title">浏览器渲染页面的过程</view>
+        <view><text class="num">1)</text>根据HTML生成DOM树</view>
+        <view><text class="num">2)</text>根据CSS生成CSS规则树（css加载不会阻塞DOM树解析，但会阻塞render树渲染）</view>
+        <view><text class="num">3)</text>将DOM树和CSSOM树整合为渲染树Render Tree</view>
+        <view><text class="num">4)</text>布局（回流）：浏览器根据渲染树进行布局，获取渲染树的浏览器渲染页面结构、节点位置、大小，根据盒子模型进行排列嵌套</view>
+        <view><text class="num">5)</text>绘制（重绘）：通过构建渲染树和回流的阶段，把渲染树上的节点转换成页面上的实际像素，这个过程叫重绘</view>
+        <view><text class="num">6)</text>浏览器进程收到合成器帧后，调用GPU，将合成器帧渲染到页面上</view>
+    </view>
+    <view class="content" wx:if="{{key==13}}">
+        <view class="title">块级元素、行内元素、行内块元素</view>
+        <view><text class="num">块级元素</text></view>
+        <view>特点：可设置宽高边距，占满整行，会自动换行</view>
+        <view>示例：div、 p、 h1 、h6、ol、ul、dl、table、address、blockquote、form</view>
+        <view><text class="num">行内元素</text></view>
+        <view>特点：无法设置宽高边距，不会占满整行，不会自动换行</view>
+        <view>示例：a、strong、b、em、i、del、s、ins、u、span</view>
+        <view><text class="num">行内块元素</text></view>
+        <view>特点：可设置宽高，占满整行，但不会自动换行</view>
+        <view>示例：img、input</view>
+    </view>
+    <view class="content" wx:if="{{key==14}}">
+        <view class="title">src和href的区别</view>
+        <view><text class="num">src:</text>引用资源，替换当前元素，用在img，script，iframe上</view>
+        <view>当浏览器解析到 src ，会暂停其他资源的下载和处理（图片不会暂停其他资源下载和处理），直到将该资源加载、编译、执行完毕，图片和框架等也如此，类似于将所指向资源应用到当前内容。这也是为什么建议把 js
+            脚本放在底部而不是头部的原因。</view>
+        <view><text class="num">href:</text>在当前元素和引用资源建立联系，用在link和a等元素上</view>
+        <view>若在文档中添加 href ，浏览器会识别该文档为 CSS 文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式加载 CSS，而不是使用 @import 方式。</view>
+    </view>
+    <view class="content" wx:if="{{key==15}}">
+        <view class="title">img标签的title和alt是什么</view>
+        <view><text class="num">title:</text>解释信息，鼠标移上去显示的信息</view>
+        <view><text class="num">alt:</text>替换信息、图片不能显示时的信息</view>
+    </view>
+    <view wx:if="{{key==16}}">
+        <view class="content">
+            <view class="title">浏览器内核</view>
+            <view>介绍：浏览器（内核）引擎分为两部分渲染引擎和js引擎</view>
+            <view>
+                <text
+                    class="num">渲染引擎：</text>负责取得网页的内容（HTML、XML、图像等等）、整理讯息（如加入的css等）以及计算网页的显示方式，然后输出至显示器或打印机。不同的浏览器内核对网页语法解释会有不同，所以渲染的效果也会不同
+            </view>
+            <view><text class="num">js引擎：</text>解析执行js语句来实现网页的动态效果</view>
+        </view>
+        <view class="content">
+            <view class="title">常见的浏览器及其内核 </view>
+            <view>谷歌 —— Chromium/Blink(chrome)</view>
+            <view>火狐 —— Gecko(firefox)</view>
+            <view>IE —— Trident</view>
+            <view>搜狐 —— webkit(Safari)</view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==17}}">
+        <view class="title">a标签中 active hover link visited 正确的设置顺序是什么?</view>
+        <view>a标签的link、visited、hover、active是有一定顺序的</view>
+        <view>a:link</view>
+        <view> a:visited</view>
+        <view>a:hover</view>
+        <view>a:active</view>
+    </view>
+    <view class="content" wx:if="{{key==18}}">
+        <view class="title">优雅降级和渐进增强 </view>
+        <view> <text class="num">优雅降级:</text> 一开始构建完整的功能，再针对低版本浏览器进行兼容</view>
+        <view> <text class="num">渐进增强:</text> 一开始保证最基本的功能，再改进和追加功能</view>
+    </view>
+    <view class="content" wx:if="{{key==19}}">
+        <view class="title">web标准和w3c标准</view>
+        <view> <text class="num">web标准:</text> 分为结构、表现和行为</view>
+        <view> <text class="num">W3C标准:</text> 提出了更规范的要求：</view>
+        <view>结构方面—标签字母要小写，标签要闭合，标签要正确嵌套</view>
+        <view>css和js方面—尽量使用外链写法，少用行内样式，属性名要<text class="num">见名知义</text></view>
+    </view>
+    <view class="content" wx:if="{{key==20}}">
+        <view class="title">前端页面由哪三个部分组成 </view>
+        <view><text class="num">html:</text>页面结构，布局</view>
+        <view><text class="num">css:</text>样式</view>
+        <view><text class="num">js:</text>行为交互</view>
+    </view>
+    <view class="content" wx:if="{{key==21}}">
+        <view class="title">div+css布局和table布局有什么优点 </view>
+        <view>1、表现和结构分离</view>
+        <view>2、页面加载速度更快，结构化清晰，页面显示简洁</view>
+        <view>3、修改样式方便，只要改css文件</view>
+        <view>4、易于优化，搜索引擎更友好</view>
+    </view>
+    <view class="content" wx:if="{{key==22}}">
+        <view class="title">前端需要注意哪些SEO </view>
+        <view>
+            1、合理的title、description、keywords：搜素时对这三项的权重逐个减少，title强调重点，重要关键词不要超过两次，而且要靠前，不同页面title要有所不同，description高度概括页面内容，长度合适，不过分堆砌关键词，不同页面description有所不同，keywords列出重要关键词即可
+        </view>
+        <view>2、语义化的html代码，符合W3C标准</view>
+        <view>3、提高网站速度</view>
+        <view>4、重要HTML代码放前面</view>
+        <view>5、重要内容不要用js输出：爬虫不会执行js获取内容</view>
+        <view>6、少用 iframe：搜索引擎不会抓取 iframe 中的内容</view>
+        <view>7、非装饰性图片必须加 alt</view>
+    </view>
+    <view class="content" wx:if="{{key==23}}">
+        <view class="title">canvas和svg的区别 </view>
+        <view class="num">canvas</view>
+        <view>1、通过js绘制2D图形，按像素进行渲染，当位置发生改变会重新进行绘制</view>
+        <view>2、依赖分辨率</view>
+        <view>3、不支持事件处理器</view>
+        <view>4、弱的文本渲染能力</view>
+        <view>5、能以.png或.jpg格式保存结果图像</view>
+        <view>6、最适合图像密集型游戏，其中的许多对象会被频繁重绘</view>
+        <view class="num">svg</view>
+        <view>1、使用XML绘制的2D图形，可以为元素添加js处理器</view>
+        <view>2、不依赖分辨率</view>
+        <view>3、支持事件处理器</view>
+        <view>4、最适合带有大型渲染区域的应用程序（如谷歌地图）</view>
+        <view>5、复杂度高会减慢渲染速度</view>
+        <view>6、不适合游戏应用</view>
+    </view>
+    <view class="content" wx:if="{{key==24}}">
+        <view class="title">HTML和XHTML的区别</view>
+        <view> XHTML：重写了HTML规范，比HTML更严格</view>
+        <view>1、XHTML中所有的标记都必须有一个相应的结束标签；</view>
+        <view>2、XHTML所有标签的元素和属性的名字都必须使用小写；</view>
+        <view>3、所有的XML标记都必须合理嵌套；</view>
+        <view>4、所有的属性都必须用引号“”括起来；</view>
+        <view>5、把所有括号和&特殊符号用编码表示；</view>
+        <view>6、给所有属性附一个值；</view>
+        <view>7、不要在注释内容中使用“--”；</view>
+        <view>8、图片必须使用说明文字。</view>
+    </view>
+    <view class="content" wx:if="{{key==25}}">
+        <view class="title">video标签的几个属性方法</view>
+        <view>src：视频的URL </view>
+        <view>poster：视频封面，没有播放时显示的图片</view>
+        <view>preload：预加载</view>
+        <view>autoplay：自动播放</view>
+        <view>loop：循环播放</view>
+        <view>controls：浏览器自带的控制条</view>
+        <view>width：视频宽度</view>
+        <view>height：视频高度</view>
+    </view>
+    <view class="content" wx:if="{{key==26}}">
+        <view class="title">HTML5新特性</view>
+        <view>html5总的来说比html4多了十个新特性，但其不支持ie8及ie8以下版本的浏览器</view>
+        <view>1、语义标签</view>
+        <view>2、增强型表单</view>
+        <view>3、视频和音频</view>
+        <view>4、Canvas绘图</view>
+        <view>5、SVG绘图</view>
+        <view>6、地理定位</view>
+        <view>7、拖放API</view>
+        <view>8、WebWorker</view>
+        <view>9、WebStorage</view>
+        <view>10、WebSocket</view>
+    </view>
+    <view class="btn">
+        <view class="pre" bindtap="preQuestion">上一题</view>
+        <view bindtap="nextQuestion">下一题</view>
+    </view>
+</view>

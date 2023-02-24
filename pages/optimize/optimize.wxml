@@ -1,0 +1,6 @@
+<!--pages/optimize/optimize.wxml-->
+<view class="page">
+    <view bindtap="goLook" data-id="{{item.id}}" class="question-list" wx:for="{{list}}" wx:key="index">
+        {{index+1}}. {{item.name}}
+    </view>
+</view>

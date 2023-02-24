@@ -6,10 +6,18 @@
         "pages/js/js",
         "pages/vue/vue",
         "pages/other/other",
-        "pages/key/key",
         "pages/css/css",
         "pages/collection/collection",
-        "pages/my/my"
+        "pages/my/my",
+        "pages/js/key",
+        "pages/html/key",
+        "pages/css/key",
+        "pages/optimize/optimize",
+        "pages/optimize/key",
+        "pages/other/key",
+        "pages/vue/key",
+        "pages/http/http",
+        "pages/http/key"
     ],
     "window": {
         "backgroundTextStyle": "light",

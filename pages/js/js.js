@@ -47,48 +47,72 @@ Page({
             },
             {
                 id: 10,
-                name: 'new的原理'
+                name: "== 和 ===的区别"
             },
             {
                 id: 11,
-                name: '浏览器事件循环和node事件循环'
+                name: 'js数组和对象的遍历方式'
             },
             {
                 id: 12,
-                name: '手写promise'
+                name: 'map与forEach的区别'
             },
             {
                 id: 13,
-                name: '手写bind'
+                name: '原型链'
             },
             {
                 id: 14,
-                name: '手写call、apply'
+                name: '继承的方式'
             },
             {
                 id: 15,
-                name: '作用域与作用域链'
+                name: '高阶函数'
             },
             {
                 id: 16,
-                name: '执行上下文'
+                name: '对象'
             },
-            {
-                id: 17,
-                name: '闭包'
-            },
-            {
-                id: 18,
-                name: '同步任务-异步任务'
-            },
-            {
-                id: 19,
-                name: 'web 存储'
-            },
-            {
-                id: 20,
-                name: '常见手写'
-            },
+            // {
+            //     id: 11,
+            //     name: '浏览器事件循环和node事件循环'
+            // },
+            // {
+            //     id: 12,
+            //     name: '手写promise'
+            // },
+            // {
+            //     id: 13,
+            //     name: '手写bind'
+            // },
+            // {
+            //     id: 14,
+            //     name: '手写call、apply'
+            // },
+            // {
+            //     id: 15,
+            //     name: '作用域与作用域链'
+            // },
+            // {
+            //     id: 16,
+            //     name: '执行上下文'
+            // },
+            // {
+            //     id: 17,
+            //     name: '闭包'
+            // },
+            // {
+            //     id: 18,
+            //     name: '同步任务-异步任务'
+            // },
+            // {
+            //     id: 19,
+            //     name: 'web 存储'
+            // },
+            // {
+            //     id: 20,
+            //     name: '常见手写'
+            // },
 
         ],
     },
@@ -103,7 +127,7 @@ Page({
         let id = e.currentTarget.dataset.id;
         console.log(id)
         wx.navigateTo({
-            url: `/pages/key/key?key=${id}&type=js`,
+            url: `/pages/js/key?key=${id}`,
         })
     },
 

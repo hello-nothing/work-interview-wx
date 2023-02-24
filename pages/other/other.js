@@ -5,7 +5,17 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        list: [{
+            id: 1,
+            name: '常见的浏览器兼容问题'
+        }, ]
+    },
+    goLook(e) {
+        let id = e.currentTarget.dataset.id;
+        console.log(id)
+        wx.navigateTo({
+            url: `/pages/other/key?key=${id}`,
+        })
     },
 
     /**

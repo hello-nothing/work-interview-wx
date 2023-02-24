@@ -21,8 +21,20 @@ Page({
         url: '/pages/vue/vue',
       },
       {
-        name: 'ES6',
-        url: '/pages/es6/es6',
+        name: 'vue3.0',
+        url: '',
+      },
+      {
+        name: 'react',
+        url: '',
+      },
+      // {
+      //   name: 'ES6',
+      //   url: '/pages/es6/es6',
+      // },
+      {
+        name: '小程序',
+        url: '/pages/wx/wx',
       },
       {
         name: 'HTTP',
@@ -34,23 +46,15 @@ Page({
       },
       {
         name: '性能优化',
-        url: '',
+        url: '/pages/optimize/optimize',
       },
       {
         name: '常见手写',
         url: '',
       },
       {
-        name: 'vue3.0',
-        url: '',
-      },
-      {
-        name: 'react',
-        url: '',
-      },
-      {
         name: '其他',
-        url: '',
+        url: '/pages/other/other',
       },
     ]
   },

@@ -1,0 +1,42 @@
+/* pages/vue/key.wxss */
+@import '../html/key.wxss';
+
+.vue {
+    width: 100%;
+    height: 2000rpx;
+}
+
+.v2 {
+    width: 100%;
+    height: 500rpx;
+}
+
+.v3 {
+    width: 100%;
+    height: 600rpx;
+}
+
+.v4 {
+    width: 100%;
+    height: 1400rpx;
+}
+
+.v5 {
+    width: 100%;
+    height: 480rpx;
+}
+
+.v6 {
+    width: 100%;
+    height: 600rpx;
+}
+
+.v7 {
+    width: 100%;
+    height: 800rpx;
+}
+
+.v8 {
+    width: 100%;
+    height: 680rpx;
+}

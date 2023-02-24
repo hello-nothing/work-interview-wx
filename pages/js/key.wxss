@@ -1,0 +1,55 @@
+/* pages/js/key.wxss */
+@import '../html/key.wxss';
+
+.j1 {
+    height: 220rpx;
+}
+
+.j2 {
+    height: 900rpx;
+}
+
+.j4 {
+    height: 260rpx;
+}
+
+.j5 {
+    height: 600rpx;
+}
+
+.j6 {
+    height: 260rpx;
+}
+
+.j7 {
+    height: 200rpx;
+}
+
+.j8 {
+    height: 600rpx;
+}
+
+.j11 {
+    height: 400rpx;
+}
+
+.j12 {
+    height: 600rpx;
+}
+
+.j17 {
+    height: 680rpx;
+}
+
+.j18 {
+    height: 300rpx;
+}
+.j20 {
+    height: 360rpx;
+}
+.j24 {
+    height: 500rpx;
+}
+.j28 {
+    height: 300rpx;
+}

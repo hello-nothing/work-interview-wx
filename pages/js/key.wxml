@@ -1,0 +1,277 @@
+<!--pages/js/key.wxml-->
+<view class="page">
+    <view wx:if="{{key==0}}">
+        <view class="content">
+            <view class="title">基本的数据类型介绍，及值类型和引用类型的理解</view>
+            <view>在 JS 中共有 8 种基础的数据类型，分别为： Undefined 、 Null 、 Boolean 、 Number 、 String 、 Object 、 Symbol 、 BigInt
+            </view>
+            <view>其中 Symbol 和 BigInt 是 ES6 新增的数据类型</view>
+            <view>Symbol 代表独一无二的值，最大的用法是用来定义对象的唯一属性名。</view>
+            <view>BigInt 可以表示任意大小的整数。</view>
+            <view> <text class="num">基本数据类型</text>
+                Number、String、Boolean、Null、Undefined、Symbol、bigInt</view>
+            <view> <text class="num">引用数据类型</text> object、Array、Date、Function、RegExp</view>
+        </view>
+        <view class="content">
+            <view class="title">数据类型的判断</view>
+            <view> <text class="num">typeof：</text> 能判断所有值类型，函数。不可对 null、对象、数组进行精确判断，因为都返回 object</view>
+            <view> <text class="num">instanceof：</text>
+                能判断对象类型，不能判断基本数据类型，其内部运行机制是判断在其原型链中能否找到该类型的原型。其实现就是顺着原型链去找，如果能找到对应的 Xxxxx.prototype 即为 true 。</view>
+            <view>
+                <text class="num">Object.prototype.toString.call()：</text>
+                所有原始数据类型都是能判断的，还有 Error 对象，Date 对象等。
+            </view>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==1}}">
+        <view class="title">setTimeout、setInterval区别</view>
+        <view>
+            两者都是定时器，设定一个150ms后执行的定时器不代表150ms后定时器会执行，它表示代码在150ms内会被加入队列，如果这个时间点队列没有其他逻辑在执行，表面上看代码在精确时间执行了。在队列中有其他逻辑时，代码等待时间会超过150ms
+        </view>
+        <view>setTimeout 只执行一次</view>
+        <view>setInterval 执行多次，属于重复定时器</view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">防抖节流</view>
+        <view><text
+                class="num">节流:</text>多次触发事件时，一段时间内保证只调用一次。以动画为例，人眼中一秒播放超过24张图片就会形成动画，假设有100张图片，我们一秒播放100张过于浪费，一秒播放24张就够了。
+        </view>
+        <view>
+            <text class="num">防抖:</text>
+            持续触发事件后，时间段内没有再触发事件，才调用一次。以坐电梯为例，电梯10s运行一次。如果快要运行时进来一个人，则重新计时。
+        </view>
+    </view>
+    <view wx:if="{{key==3}}">
+        <view class="content">
+            <view class="title">浅拷贝</view>
+            <view> <text class="num">1)</text> concat()</view>
+            <view> <text class="num">2)</text>Object.assign()</view>
+            <view> <text class="num">3)</text>slice()</view>
+            <view> <text class="num">4)</text>手写</view>
+            <image src="../../img/qcopy.png"></image>
+        </view>
+        <view class="content">
+            <view class="title">深拷贝</view>
+            <view> <text class="num">1)</text>JSON.stringfy(JSON.parse())-上面的方法不能解决循环引用，也不能显示函数或undefined</view>
+            <view> <text class="num">2)</text>手写深拷贝</view>
+            <image src="../../img/copy.png"></image>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==6}}">
+        <view class="title">es6的class的es5的类有什么区别</view>
+        <view><text class="num">1)</text>es6中 class内部定义的方法都是不可枚举的 </view>
+        <view><text class="num">2)</text>es6中 class必须用new调用 </view>
+        <view><text class="num">3)</text>es6中 class不存在变量提升 </view>
+        <view><text class="num">4)</text>es6中 class默认使用严格模式</view>
+        <view><text class="num">5)</text>es6中 class子类必须在父类的构造函数中调用super(),才有this对象；而es5是先有子类的this，再调用父类的方法应用再在this上面
+        </view>
+    </view>
+    <view wx:if="{{key==7}}">
+        <view class="content">
+            <view class="title">使用ES6的Set</view>
+            <image mode="aspectFit" class="qc1" src="../../img/qc1.png"></image>
+        </view>
+        <view class="content">
+            <view class="title">filter+indexOf()判断，如果数字不是第一次出现则被过滤</view>
+            <image mode="aspectFit" class="qc2" src="../../img/qc2.png"></image>
+        </view>
+        <view class="content">
+            <view class="title">双重for循环</view>
+            <image mode="aspectFit" class="qc3" src="../../img/qc3.png"></image>
+        </view>
+        <view class="content">
+            <view class="title">哈希表</view>
+            <image mode="aspectFit" class="qc2" src="../../img/qc4.png"></image>
+        </view>
+        <view class="content">
+            <view class="title">sort排序，相同的数字会排在相邻n个位置</view>
+            <image mode="aspectFit" class="qc3" src="../../img/qc5.png"></image>
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==8}}">
+        <view class="title">this</view>
+        <view>this总是指向函数的直接调用者，如果有new关键字，this指向new出来的对象，在事件中，this指向触发这个事件的对象。</view>
+    </view>
+    <view class="content" wx:if="{{key==9}}">
+        <view class="title">箭头函数和普通函数区别</view>
+        <view class="num">1. 箭头函数比普通函数更加简洁</view>
+        <image class="j7" mode="aspectFit" src="../../img/j7.png"></image>
+        <view>如果没有参数，就直接写一个空括号即可</view>
+        <view>如果只有一个参数，可以省去参数的括号</view>
+        <view>如果有多个参数，用逗号分割</view>
+        <view>如果函数体的返回值只有一句，可以省略大括号</view>
+        <view class="num">2. 箭头函数没有自己的this</view>
+        <view>箭头函数不会创建自己的this， 所以它没有自己的this，它只会在自己作用域的上一层继承this。所以箭头函数中this的指向在它在定义时已经确定了，之后不会改变。</view>
+        <view class="num">3. 箭头函数继承来的this指向永远不会改变</view>
+        <image class="j8" mode="aspectFit" src="../../img/j8.png"></image>
+        <view>对象obj的方法b是使用箭头函数定义的，这个函数中的this就永远指向它定义时所处的全局执行环境中的this，即便这个函数是作为对象obj的方法调用，this依旧指向Window对象。需要注意，定义对象的大括号{
+            }是无法形成一个单独的执行环境的，它依旧是处于全局执行环境中。</view>
+        <view class="num">4. call()、apply()、bind()等方法不能改变箭头函数中this的指向
+        </view>
+        <image class="j9" mode="aspectFit" src="../../img/j9.png"></image>
+        <view class="num">5. 箭头函数不能作为构造函数使用 ，不能使用new</view>
+        <view>由于箭头函数时没有自己的this，且this指向外层的执行环境，且不能改变指向，所以不能当做构造函数使用。</view>
+        <image mode="aspectFit" src="../../img/j10.png"></image>
+
+        <view class="num">6. 箭头函数没有自己的arguments</view>
+        <view>箭头函数没有自己的arguments对象。在箭头函数中访问arguments实际上获得的是它外层函数的arguments值。</view>
+        <view class="num">7. 箭头函数没有prototype</view>
+        <view class="num">8. 箭头函数的this指向哪⾥？</view>
+        <view>箭头函数不同于传统JavaScript中的函数，箭头函数并没有属于⾃⼰的this，它所谓的this是捕获其所在上下⽂的 this 值，作为⾃⼰的 this
+            值，并且由于没有属于⾃⼰的this，所以是不会被new调⽤的，这个所谓的this也不会被改变。</view>
+    </view>
+    <view class="content" wx:if="{{key==10}}">
+        <view class="title">== 和 ===的区别</view>
+        <view>1、==是非严格意义上的相等：值相等就相等</view>
+        <view>2、===是严格意义上的相等，会比较两边的数据类型和值大小：值和引用地址都相等才相等
+        </view>
+    </view>
+    <view class="content" wx:if="{{key==11}}">
+        <view class="title">js数组和对象的遍历方式</view>
+        <view class="num">for in</view>
+        <view>for....in 是es5标准， 此方法遍历数组效率低，主要是用来循环遍历对象的属性</view>
+        <image class="j4" mode="aspectFit" src="../../img/j4.png"></image>
+        <image class="j5" mode="aspectFit" src="../../img/j5.png"></image>
+        <view class="num">for</view>
+        <image class="j1" mode="aspectFit" src="../../img/j1.png"></image>
+        <view class="num">forEach</view>
+        <image class="j2" mode="aspectFit" src="../../img/j2.png"></image>
+        <view class="num">map</view>
+        <view>map即是 “映射”的意思 ，原数组被“映射”成对应新数组</view>
+        <image mode="aspectFit" src="../../img/j3.png"></image>
+        <view class="num">for-of</view>
+        <image class="j6" mode="aspectFit" src="../../img/j6.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==12}}">
+        <view class="title">map与forEach的区别</view>
+        <view>1、forEach：用来遍历数组中的每一项，这个方法执行没有返回值，不影响原数组</view>
+        <view>2、map：支持return，相当与原数组克隆了一份，把克隆的每项改变了，也不影响原数组</view>
+        <view class="">forEach 方法，是最基本的方法，就是遍历与循环，默认有 3 个传参：分别是遍历的数组内容 item、数组索引 index、和当前遍历数组 Array。 </view>
+        <view>map 方法，基本用法与 forEach
+            一致，但是不同的，它会返回一个新的数组，所以 callback
+            需要有 return 值，如果没有，会返回 undefined。</view>
+    </view>
+    <view class="content" wx:if="{{key==13}}">
+        <view class="title">原型链</view>
+        <view class="title">定义</view>
+        <view>对象继承属性的一个链条</view>
+        <view class="title">构造函数,实例与原型对象的关系</view>
+        <image class="j11" mode="aspectFit" src="../../img/j11.png"></image>
+        <image class="j12" mode="aspectFit" src="../../img/j12.png"></image>
+        <view>person是构造函数，personTwo是实例，o3personTwo.prototype里面的constructor属性是构造函数</view>
+        <view>原型对象都有一个默认的constructor属性指向构造函数</view>
+        <view class="title">创建实例的方法</view>
+        <view class="num">1.字面量</view>
+        <view>let obj={'name':'张三'}</view>
+        <view class="num">2.Object构造函数创建</view>
+        <view>let Obj=new Object()</view>
+        <view>Obj.name='张三'</view>
+        <view class="num">3.使用工厂模式创建对象</view>
+        <image class="" mode="aspectFit" src="../../img/j13.png"></image>
+        <view class="num">4.使用构造函数创建对象</view>
+        <image class="" mode="aspectFit" src="../../img/j14.png"></image>
+        <view class="title">new运算符</view>
+        <view>1.创了一个新对象;</view>
+        <view>2.this指向构造函数;</view>
+        <view>3.构造函数有返回,会替换new出来的对象,如果没有就是new出来的对象</view>
+        <view>4.手动封装一个new运算符</view>
+        <image class="j11" mode="aspectFit" src="../../img/j15.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==14}}">
+        <view class="title">继承的方式</view>
+        <view>JS是一门弱类型动态语言,封装和继承是他的两大特性。</view>
+        <view class="num">原型链继承</view>
+        <view>将父类的实例作为子类的原型</view>
+        <view>定义父类：</view>
+        <image class="j12" mode="aspectFit" src="../../img/j16.png"></image>
+        <view>定义子类：</view>
+        <image class="j17" mode="aspectFit" src="../../img/j17.png"></image>
+        <view>优缺点：</view>
+        <view>简单易于实现,但是要想为子类新增属性和方法，必须要在new Animal()这样的语句之后执行,无法实现多继承</view>
+        <view class="num">构造继承</view>
+        <view>实质是利用call来改变Cat中的this指向</view>
+        <view>子类：</view>
+        <image class="j18" mode="aspectFit" src="../../img/j18.png"></image>
+        <view>优缺点：可以实现多继承,不能继承原型属性/方法</view>
+        <view class="num">实例继承</view>
+        <view>为父类实例添加新特性，作为子类实例返回</view>
+        <view>子类：</view>
+        <image class="j18" mode="aspectFit" src="../../img/j19.png"></image>
+        <view>优缺点: 不限制调用方式，但不能实现多继承</view>
+        <view class="num">拷贝继承</view>
+        <view>将父类的属性和方法拷贝一份到子类中</view>
+        <view>子类：</view>
+        <image class="j20" mode="aspectFit" src="../../img/j20.png"></image>
+        <view>优缺点：支持多继承，但是效率低占用内存</view>
+        <view class="num">组合继承</view>
+        <view>通过调用父类构造，继承父类的属性并保留传参的优点，然后通过将父类实例作为子类原型，实现函数复用 </view>
+        <view>子类：</view>
+        <image class="j20" mode="aspectFit" src="../../img/j21.png"></image>
+        <view class="num">寄生组合继承</view>
+        <view>子类：</view>
+        <image class="j12" mode="aspectFit" src="../../img/j22.png"></image>
+        <view class="num">ES6的extends继承</view>
+        <view>父类：</view>
+        <image class="j20" mode="aspectFit" src="../../img/j23.png"></image>
+        <view>子类：</view>
+        <image class="j24" mode="aspectFit" src="../../img/j24.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==15}}">
+        <view class="title">高阶函数</view>
+        <view class="title num">定义</view>
+        <view>函数的参数是函数或返回函数</view>
+        <view class="title num">常见的高阶函数</view>
+        <view>map、reduce、filter、sort</view>
+        <view class="title num">柯里化</view>
+        <view>定义：</view>
+        <view>只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数</view>
+        <view>fn(a,b,c,d)=>fn(a)(b)(c)(d)</view>
+        <view>代码实现：</view>
+        <image class="j20" mode="aspectFit" src="../../img/j25.png"></image>
+        <view class="title num">反柯里化</view>
+        <view>定义：</view>
+        <view>obj.func(arg1, arg2)=>func(obj, arg1, arg2)</view>
+        <view>代码实现：</view>
+        <image class="j20" mode="aspectFit" src="../../img/j26.png"></image>
+        <view class="title num">偏函数</view>
+        <view>定义：指定部分参数来返回一个新的定制函数的形式</view>
+        <view>例子：</view>
+        <image mode="aspectFit" src="../../img/j27.png"></image>
+    </view>
+    <view class="content" wx:if="{{key==16}}">
+        <view class="title num">对象的声明方法</view>
+        <view class="title">1、字面量</view>
+        <image class="j28" mode="aspectFit" src="../../img/j28.png"></image>
+        <view class="title">2、构造函数</view>
+        <image class="j28" mode="aspectFit" src="../../img/j29.png"></image>
+        <view>new的作用: </view>
+        <view>1.创了一个新对象; </view>
+        <view>2.this指向构造函数; </view>
+        <view>3.构造函数有返回,会替换new出来的对象,如果没有就是new出来的对象</view>
+        <view class="title">3、内置方法</view>
+        <image class="j28" mode="aspectFit" src="../../img/j30.png"></image>
+        <view>Obejct.create(obj,descriptor)，obj是对象，describe描述符属性(可选)</view>
+        <view class="title">三种方法的优缺点</view>
+        <view>1.功能：都能实现对象的声明，并能够赋值和取值</view>
+        <view>2.继承性：内置方法创建的对象继承到__proto__属性上</view>
+        <view>3.隐藏属性：三种声明方法会默认为内部的每个成员（属性或方法）生成一些隐藏属性，这些隐藏属性是可以读取和可配置的，属性分类见下面</view>
+        <view>4.属性读取：Object.getOwnPropertyDescriptor()或getOwnPropertyDescriptor()</view>
+        <view>5.属性设置：Object.definePropertype或Object.defineProperties</view>
+        <view class="title num">对象的属性</view>
+        <view class="title">属性分类</view>
+        <view>1.数据属性4个特性: configurable(可配置)、enumerable(可枚举)、writable(可修改)、value(属性值)</view>
+        <view>2.访问器属性2个特性: get(获取)、set(设置)</view>
+        <view>3.内部属性由JavaScript引擎内部使用的属性：
+            不能直接访问，但是可以通过对象内置方法间接访问，如:[[Prototype]]可以通过 Object.getPrototypeOf()访问;
+            内部属性用[[]]包围表示，是一个抽象操作，没有对应字符串类型的属性名,如[[Prototype]]</view>
+        <view class="title">属性描述符</view>
+        <view>1.将一个属性的所有特性编码成一个对象返回</view>
+        <view> 2.描述符的属性有:数据属性和访问器属性</view>
+        <view>3.使用范围:
+            作为方法Object.defineProperty，Object.getOwnPropertyDescriptor，Object.create的第二个参数</view>
+    </view>
+    <view class="btn">
+        <view wx:if="{{key!=0}}" class="pre" bindtap="preQuestion">上一题</view>
+        <view bindtap="nextQuestion">下一题</view>
+    </view>
+</view>

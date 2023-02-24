@@ -5,8 +5,8 @@
     },
     "setting": {
         "urlCheck": false,
-        "es6": true,
-        "enhance": true,
+        "es6": false,
+        "enhance": false,
         "postcss": true,
         "preloadBackgroundData": false,
         "minified": true,
@@ -39,7 +39,7 @@
         "showES6CompileOption": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.29.2",
+    "libVersion": "2.30.0",
     "appid": "wx35fcada07a4911c8",
     "projectname": "web",
     "debugOptions": {

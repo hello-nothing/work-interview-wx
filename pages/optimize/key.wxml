@@ -1,0 +1,82 @@
+<!--pages/optimize/key.wxml-->
+<view class="page">
+    <view class="content" wx:if="{{key==1}}">
+        <view class="title">前端优化的原则</view>
+        <view>1）能缓存的，尽量强缓存。</view>
+        <view>2）引入外部资源时不要出现超时、404的状况。</view>
+        <view>3）减少HTTP请求数。</view>
+        <view>4）合理设置cookie的大小以及过期时间。</view>
+        <view>5）合理利用懒加载。</view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">网页内容的优化</view>
+        <view class="num">1、懒加载数据。</view>
+        <view>首先根据标签的left和top属性判断是否显示在了屏幕中（如果显示在屏幕中，其left和top属性值应该是在0到窗口长宽之间）。
+            如果显示在屏幕中，则将src标签的内容替换为图片的url。</view>
+        <view class="num">2、使用外部引入的css和js文件，并且引入的css和js越少越好（HTTP2.0不适用）。</view>
+        <view>这里可以使用webpack打包这些文件，也可以使用强缓存与协商缓存来缓存这些文件。</view>
+        <view class="num">3、不要缩放图片。</view>
+        <view>img计算缩放也需要时间</view>
+        <view class="num">4、避免重定向。</view>
+        <view>重定向会重新渲染网页。</view>
+        <view class="num">5、尽量不要用iframe。</view>
+        <view>因为iframe会阻塞渲染。</view>
+        <view class="num">6、使用base64编码将图片嵌入到样式表中，减少请求数（由于base64会比一般的图片大一点，只适用于那些体积比较小但是很常用的图片）。</view>
+        <view class="num">7、使用雪碧图（精灵图）</view>
+        <view>通过使用background-position：-xpx
+            -ypx;来调整图片的位置，不过HTTP2不适用，原因为HTTP2实际上是多路复用的，只用一个TCP连接，所以多个图片的请求也是在同一个TCP连接里，这样能省下非常多的请求时间，但坏处就是单连接开销很大，如果要传多个大文件，就很麻烦。
+        </view>
+        <view class="num">8、要有网站小图标favicon.ico。</view>
+        <view>如果没有小图标，会引起404，拖慢网页加载进度。</view>
+        <view class="num">9、能使用jpeg就不要用png，能使用png8就不要用png24。</view>
+        <view>（1）色彩丰富的、大的图片切成jpg的；</view>
+        <view>（2）尺寸小的，色彩不丰富的和背景透明的切成gif或者png8的；</view>
+        <view>（3）半透明的切成png24。</view>
+        <view class="num">10、使用canvas压缩图片。</view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">css的优化</view>
+        <view class="num">1、避免使用@import。</view>
+        <view>
+            使用@import相当于将引入的css放在了页面底部，因为使用@import引用的文件只有在引用它的那个css文件被下载、解析之后，浏览器才会知道还有另外一个css需要下载，这时才去下载，然后下载后开始解析、构建render
+            tree等一系列操作。因此使用@import会拖慢渲染的过程。</view>
+        <view class="num">2、将样式表放在head中。</view>
+        <view>如果放在body中，可能出现在浏览器下载好css样式表之前，组件就已经加载好了的情况，这可能会导致重新渲染。</view>
+        <view class="num">3、避免使用css表达式。</view>
+        <view>如：expression((new Date()).getHours()%2 ? “#B8D4FF” : “#F08A00” )；
+            解析表达式和计算都需要时间。</view>
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">JavaScript的优化</view>
+        <view class="num">1、尽量减少DOM访问。</view>
+        <view class="num">2、使用事件代理（减少DOM操作）。</view>
+        <view class="num">3、把脚本放在底部（加载脚本时会阻塞页面渲染）。</view>
+        <view class="num">4、合理使用节流函数和防抖函数。</view>
+        <view class="num">5、使用CDN优化加载速度</view>
+        <view>CDN即内容分发网络。它依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。</view>
+    </view>
+    <view class="content" wx:if="{{key==5}}">
+        <view class="title">webpack打包优化</view>
+        <view>针对webpack打包优化主要是减少打包后的代码体积，主要的措施有：</view>
+        <view class="num">1、进行tree-shaking </view>
+        <view class="num">2、使用UglifyJS等插件压缩代码</view>
+        <view class="num">3、分割代码、按需加载</view>
+        <view>我们可以使用webpack-bundle-analyzer这个插件来查看每部分代码的加载耗时，进而分析可以优化的地方。</view>
+    </view>
+    <view class="content" wx:if="{{key==6}}">
+        <view class="title">SEO优化</view>
+        <view class="num">什么是SEO</view>
+        <view>SEO(Search Engine
+            Optimization)，即搜索引擎优化。SEO是随着搜索引擎的出现而来的，两者是相互促进，互利共生的关系。SEO的存在就是为了提升网页在搜索引擎自然搜索结果中的收录数量以及排序位置而做的优化行为。 <text class="num">优化的目的</text> 就是为了提升网站在搜索引擎中的权重，增加对搜索引擎的友好度，使得用户在访问网站时能排在前面。
+        </view>
+        <view class="num">为什么要做SEO</view>
+        <view>提高网站的权重，增强搜索引擎友好度，以达到提高排名，增加流量，改善（潜在）用户体验，促进销售的作用。</view>
+        <view class="num">前端怎么做SEO优化</view>
+        <view>1.网站结构布局优化: 尽量简单</view>
+        <view>2.控制首页链接数量</view>
+        <view>3.网页层级不要太深</view>
+        <view>4.控制页面大小, 减少HTTP请求, 提高网站的加载速度</view>
+        <view>5.尽量使用语义化标签</view>
+        <view>6.利用浏览器缓存</view>
+    </view>
+</view>
