@@ -22,4 +22,246 @@
         <view>Firefox下，可以使用const关键字来定义常量；IE下，只能使用var关键字来定义常量。
             解决方法：统一使用var关键字来定义常量。</view>
     </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">必记单词</view>
+        <view class="title num">导航类</view>
+        <view>导航—<text class="num">nav</text></view>
+        <view>标题—<text class="num">title</text></view>
+        <view>摘要—<text class="num">summary</text></view>
+        <view>菜单—<text class="num">menu</text></view>
+        <view>子菜单—<text class="num">submenu</text></view>
+        <view>顶导航—<text class="num">topnav</text></view>
+        <view>侧边导航—<text class="num">sidebar</text></view>
+        <view>左导航—<text class="num">leftsidebar</text></view>
+        <view class="title num">页面结构布局</view>
+        <view>容器—<text class="num">container</text></view>
+        <view>页头—<text class="num">header</text></view>
+        <view>内容—<text class="num">content</text></view>
+        <view>页尾—<text class="num">footer</text></view>
+        <view>侧栏—<text class="num">sidebar</text></view>
+        <view>栏目—<text class="num">column</text></view>
+        <view>页面主体—<text class="num">main</text></view>
+        <view>左右中—<text class="num">left/right/center</text></view>
+        <view>页面中间布局—<text class="num">wrapper</text></view>
+        <view class="title num">功能</view>
+        <view>标志—<text class="num">logo</text></view>
+        <view>登录—<text class="num">login</text></view>
+        <view>图标—<text class="num">icon</text></view>
+        <view>状态—<text class="num">status</text></view>
+        <view>热点—<text class="num">hot</text></view>
+        <view>版权—<text class="num">copyright</text></view>
+        <view>登录条—<text class="num">loginbar</text></view>
+        <view>小提示—<text class="num">tips</text></view>
+        <view>提示信息—<text class="num">msg</text></view>
+        <view>滚动—<text class="num">scroll</text></view>
+        <view>注册—<text class="num">register</text></view>
+        <view>注释—<text class="num">note</text></view>
+        <view>服务—<text class="num">service</text></view>
+        <view>新闻—<text class="num">news</text></view>
+        <view>投票—<text class="num">vote</text></view>
+        <view>面包屑—<text class="num">breadCrumd</text></view>
+        <view>功能区—<text class="num">shop</text></view>
+        <view>合作伙伴—<text class="num">partner</text></view>
+        <view>广告—<text class="num">banner</text></view>
+        <view>搜索—<text class="num">search</text></view>
+        <view>指南—<text class="num">guild</text></view>
+        <view>按钮—<text class="num">btn</text></view>
+        <view>下载—<text class="num">download</text></view>
+        <view>标签页—<text class="num">tab</text></view>
+        <view>当前的—<text class="num">current</text></view>
+        <view>列表—<text class="num">list</text></view>
+        <view>链接—<text class="num">link</text></view>
+        <view>合并—<text class="num">collapse</text></view>
+        <view>定位—<text class="num">position</text></view>
+        <view>脚本—<text class="num">script</text></view>
+        <view>字符串—<text class="num">string/str</text></view>
+        <view>数字—<text class="num">number/num</text></view>
+        <view>布尔—<text class="num">boolean</text></view>
+        <view>未定义—<text class="num">undefined</text></view>
+        <view>空—<text class="num">null/none</text></view>
+        <view>函数—<text class="num">function</text></view>
+        <view>文档—<text class="num">document</text></view>
+        <view>获取—<text class="num">get</text></view>
+        <view>元素—<text class="num">ele/element</text></view>
+        <view>通过—<text class="num">by</text></view>
+        <view>标签名—<text class="num">tag/tagName</text></view>
+        <view>窗口—<text class="num">window</text></view>
+        <view>对象—<text class="num">object</text></view>
+        <view>数组—<text class="num">array</text></view>
+        <view>定时器—<text class="num">setinterval</text></view>
+        <view>清除定时器—<text class="num">clearinterval</text></view>
+        <view>下一个—<text class="num">next</text></view>
+        <view>前一个—<text class="num">pre</text></view>
+        <view>父母—<text class="num">parent</text></view>
+        <view>孩子—<text class="num">children/child</text></view>
+        <view>点击—<text class="num">click</text></view>
+        <view>鼠标移开—<text class="num">mouseleave</text></view>
+        <view>鼠标进入—<text class="num">mouseenter</text></view>
+        <view>动画—<text class="num">animate</text></view>
+        <view>滑动—<text class="num">slide</text></view>
+        <view>渐进—<text class="num">fade</text></view>
+        <view>显示—<text class="num">show</text></view>
+        <view>隐藏—<text class="num">hide</text></view>
+        <view>测试—<text class="num">test</text></view>
+        <view>阻止冒泡—<text class="num">stopProperation</text></view>
+        <view>阻止默认行为—<text class="num">preventDefault</text></view>
+        <view>数据交互—<text class="num">ajax</text></view>
+        <view>类型—<text class="num">type</text></view>
+        <view>资源—<text class="num">url</text></view>
+        <view>数据—<text class="num">data</text></view>
+        <view>数据类型—<text class="num">dataType</text></view>
+        <view>成功—<text class="num">success</text></view>
+        <view>失败—<text class="num">fail</text></view>
+        <view>完成—<text class="num">done</text></view>
+        <view>错误—<text class="num">error</text></view>
+        <view>计算—<text class="num">computed</text></view>
+        <view>监听—<text class="num">watch</text></view>
+        <view>过滤器—<text class="num">filters</text></view>
+        <view>定义变量—<text class="num">let</text></view>
+        <view>定义常量—<text class="num">const</text></view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">Git命令</view>
+        <view class="num">git init</view>
+        <view>初始化仓库，默认为master分支</view>
+        <view class="num">git add .</view>
+        <view>提交全部文件修改到缓存区</view>
+        <view class="num">git add 具体某个文件路径+全名
+        </view>
+        <view> 提交某些文件到缓存区</view>
+        <view class="num">git diff</view>
+        <view>查看当前代码 add后，会 add 哪些内容</view>
+        <view class="num">git diff --staged</view>
+        <view>查看现在 commit 提交后，会提交哪些内容</view>
+        <view class="num">git status</view>
+        <view>查看当前分支状态</view>
+        <view class="num">git pull 远程仓库名 远程分支名
+        </view>
+        <view>拉取远程仓库的分支与本地当前分支合并</view>
+        <view class="num">git pull 远程仓库名 远程分支名:本地分支名
+        </view>
+        <view>拉取远程仓库的分支与本地某个分支合并</view>
+        <view class="num">git commit -m 注释 </view>
+        <view>提交代码到本地仓库，并写提交注释</view>
+        <view class="num">git commit -v</view>
+        <view>提交时显示所有diff信息</view>
+        <view class="num">git commit --amend [file1] [file2]</view>
+        <view>重做上一次commit，并包括指定文件的新变化</view>
+        <view class="title">提交规则</view>
+        <view class="num">feat</view>
+        <view> 新特性，添加功能</view>
+        <view class="num">fix</view>
+        <view>修改bug</view>
+        <view class="num">refactor</view>
+        <view>代码重构</view>
+        <view class="num">docs</view>
+        <view>文档修改</view>
+        <view class="num">style</view>
+        <view>代码格式修改, 注意不是 css 修改</view>
+        <view class="num">test</view>
+        <view>测试用例修改</view>
+        <view class="num">chore</view>
+        <view>其他修改, 比如构建流程, 依赖管理</view>
+        <view class="title">分支操作</view>
+        <view class="num">git branch</view>
+        <view>查看本地所有分支</view>
+        <view class="num">git branch -r </view>
+        <view>查看远程所有分支</view>
+        <view class="num">git branch -a</view>
+        <view>查看本地和远程所有分支</view>
+        <view class="num">git merge 分支名</view>
+        <view>合并分支</view>
+        <view class="num">git merge --abort</view>
+        <view>合并分支出现冲突时，取消合并，一切回到合并前的状态</view>
+        <view class="num">git branch 新分支名</view>
+        <view>基于当前分支，新建一个分支</view>
+        <view class="num">git checkout --orphan 新分支名</view>
+        <view>新建一个空分支（会保留之前分支的所有文件）</view>
+        <view class="num">git branch -D 分支名</view>
+        <view> 删除本地某个分支</view>
+        <view class="num">git push 远程库名:分支名</view>
+        <view>删除远程某个分支</view>
+        <view class="num">git branch 新分支名称 提交ID</view>
+        <view>从提交历史恢复某个删掉的某个分支</view>
+        <view class="num">git branch -m 原分支名 新分支名</view>
+        <view>分支更名</view>
+        <view class="num">git checkout 分支名</view>
+        <view>切换到本地某个分支</view>
+        <view class="num">git checkout 远程库名/分支名</view>
+        <view>切换到线上某个分支</view>
+        <view class="num">git checkout -b 新分支名</view>
+        <view>把基于当前分支新建分支，并切换为这个分支</view>
+        <view class="title">远程操作</view>
+        <view class="num">git fetch [remote]</view>
+        <view>下载远程仓库的所有变动</view>
+        <view class="num">git remote -v</view>
+        <view>显示所有远程仓库</view>
+        <view class="num">git pull [remote] [branch]</view>
+        <view>拉取远程仓库的分支与本地当前分支合并</view>
+        <view class="num">git fetch</view>
+        <view>获取线上最新版信息记录，不合并</view>
+        <view class="num">git push [remote] [branch]</view>
+        <view>上传本地指定分支到远程仓库</view>
+        <view class="num">git push [remote] --force</view>
+        <view>强行推送当前分支到远程仓库，即使有冲突</view>
+        <view class="num">git push [remote] --all</view>
+        <view>推送所有分支到远程仓库</view>
+        <view class="title">撤销操作</view>
+        <view class="num">git checkout [file]</view>
+        <view>恢复暂存区的指定文件到工作区</view>
+        <view class="num">git checkout [commit] [file]</view>
+        <view>恢复某个commit的指定文件到暂存区和工作区</view>
+        <view class="num">git checkout .</view>
+        <view>恢复暂存区的所有文件到工作区</view>
+        <view class="num">git reset [commit]</view>
+        <view>重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</view>
+        <view class="num">git reset --hard</view>
+        <view>重置暂存区与工作区，与上一次commit保持一致</view>
+        <view class="num">git reset [file] </view>
+        <view>重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</view>
+        <view class="num">git revert [commit]</view>
+        <view>后者的所有变化都将被前者抵消，并且应用到当前分支</view>
+        <view class="title">存储操作</view>
+        <view class="num">git stash</view>
+        <view>暂时将未提交的变化移除</view>
+        <view class="num">git stash pop</view>
+        <view>取出储藏中最后存入的工作状态进行恢复，会删除储藏</view>
+        <view class="num">git stash list</view>
+        <view>查看所有储藏中的工作</view>
+        <view class="num">git stash apply 储藏的名称</view>
+        <view> 取出储藏中对应的工作状态进行恢复，不会删除储藏</view>
+        <view class="num">git stash clear</view>
+        <view>清空所有储藏中的工作</view>
+        <view class="num">git stash drop 储藏的名称</view>
+        <view>删除对应的某个储藏</view>
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">Git常用命令</view>
+        <view class="num">git init</view>
+        <view>初始化仓库，默认为master分支</view>
+        <view class="num">git clone 地址</view>
+        <view>克隆远程仓库</view>
+        <view class="num">git clone -b 分支名 地址</view>
+        <view>克隆分支的代码到本地</view>
+        <view class="num">git status</view>
+        <view>查看状态</view>
+        <view class="num">git add 文件名</view>
+        <view>将某个文件存入暂存区</view>
+        <view class="num">git checkout -- file</view>
+        <view>撤销工作区的修改 例如git checkout -- readMe.txt 将本次readMe.txt在工作区的修改撤销掉</view>
+        <view class="num">git add b c</view>
+        <view>把b和c存入暂存区</view>
+        <view class="num">git add .</view>
+        <view>将所有文件提交到暂存区</view>
+        <view class="num">git add -p 文件名</view>
+        <view>一个文件分多次提交</view>
+        <view class="num">git commit -m "提交的备注信息"</view>
+        <view>提交到仓库，若已经有若干文件放入仓库，再次提交可以不用git add .和git commit -m "备注信息" 这2步， 直接用</view>
+        <view class="num">git commit -am "备注信息"</view>
+        <view>将内容放至仓库 也可用git commit -a -m "备注信息"</view>
+        <view class="num">git pull 远程仓库名 远程分支名:本地分支名</view>
+        <view>拉取远程仓库的分支与本地某个分支合并</view>
+        <view class="num">git push origin 分支名</view>
+        <view>提交代码到某个分支</view>
+    </view>
 </view>

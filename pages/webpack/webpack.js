@@ -1,4 +1,4 @@
-// pages/other/other.js
+// pages/webpack/webpack.js
 Page({
 
     /**
@@ -7,19 +7,27 @@ Page({
     data: {
         list: [{
                 id: 1,
-                name: '常见的浏览器兼容问题'
+                name: 'webpack的构建流程'
             },
             {
                 id: 2,
-                name: '必记单词'
+                name: 'Loader和Plugin的区别'
             },
             {
                 id: 3,
-                name: 'Git命令'
+                name: '提高webpack的构建速度'
             },
             {
                 id: 4,
-                name: 'Git常用命令'
+                name: 'webpack热更新是怎么做到的'
+            },
+            {
+                id: 5,
+                name: 'webpack中常见的Loader'
+            },
+            {
+                id: 6,
+                name: 'webpack中常见的Plugin'
             },
         ]
     },
@@ -27,7 +35,7 @@ Page({
         let id = e.currentTarget.dataset.id;
         console.log(id)
         wx.navigateTo({
-            url: `/pages/other/key?key=${id}`,
+            url: `/pages/webpack/key?key=${id}`,
         })
     },
 

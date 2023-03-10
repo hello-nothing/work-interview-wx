@@ -1,0 +1,118 @@
+<!--pages/webpack/key.wxml-->
+<view class="page">
+    <view class="content" wx:if="{{key==1}}">
+        <view class="title">webpack的构建流程</view>
+        <view class="num">1.初始化参数</view>
+        <view>解析webpack配置参数，合并shell传入和webpack.config.js文件配置的参数，形成最后的配置结果。</view>
+        <view class="num">2.开始编译</view>
+        <view>上一步得到的参数初始化compiler对象，注册所有配置的插件，插件监听webpack构建生命周期的事件节点，做出相应的反应，执行对象的 run 方法开始执行编译。</view>
+        <view class="num">3.确定入口</view>
+        <view>从配置的entry入口，开始解析文件构建AST语法树，找出依赖，递归下去。</view>
+        <view class="num">4.编译模块</view>
+        <view>递归中根据文件类型和loader配置，调用所有配置的loader对文件进行转换，再找出该模块依赖的模块，再递归本步骤直到所有入口依赖的文件都经过了本步骤的处理。</view>
+        <view class="num">5.完成模块编译</view>
+        <view>在经过第4步使⽤ Loader 翻译完所有模块后，得到了每个模块被翻译后的最终内容以及它们之间的依赖关系；</view>
+        <view class="num">6.输出资源</view>
+        <view>根据⼊⼝和模块之间的依赖关系，组装成⼀个个包含多个模块的 Chunk，再把每个 Chunk 转换成⼀个单独的⽂件加⼊到输出列表，这步是可以修改输出内容的最后机会；</view>
+        <view class="num">7.输出完成</view>
+        <view>在确定好输出内容后，根据配置确定输出的路径和⽂件名，把⽂件内容写⼊到⽂件系统。</view>
+    </view>
+    <view class="content" wx:if="{{key==2}}">
+        <view class="title">Loader和Plugin的区别</view>
+        <view class="num">loader</view>
+        <view>loader 是文件加载器，能够加载资源文件，并对这些文件进行一些处理，诸如编译、压缩等，最终一起打包到指定的文件中</view>
+        <view class="num">plugin</view>
+        <view>plugin 赋予了 webpack 各种灵活的功能，例如打包优化、资源管理、环境变量注入等，目的是解决 loader 无法实现的其他事</view>
+        <view class="num">两者在运行时机上的区别</view>
+        <view>loader 运行在打包文件之前，plugins 在整个编译周期都起作用
+        </view>
+        <view>在Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过Webpack提供的 API改变输出结果；</view>
+        <view>对于loader，实质是一个转换器，将A文件进行编译形成B文件，操作的是文件，比如将A.scss或A.less转变为B.css，单纯的文件转换过程</view>
+    </view>
+    <view class="content" wx:if="{{key==3}}">
+        <view class="title">提高webpack的构建速度</view>
+        <view>1.优化 loader 配置</view>
+        <view>2.合理使用 resolve.extensions</view>
+        <view>3.优化 resolve.modules</view>
+        <view>4.优化 resolve.alias</view>
+        <view>5.使用 DLLPlugin 插件</view>
+        <view>6.使用 cache-loader</view>
+        <view>7.terser 启动多线程</view>
+        <view>8.合理使用 sourceMap</view>
+    </view>
+    <view class="content" wx:if="{{key==4}}">
+        <view class="title">webpack 热更新是怎么做到的</view>
+        <view>1.通过webpack-dev-server创建两个服务器：提供静态资源的服务（express）和Socket服务</view>
+        <view>2.express server 负责直接提供静态资源的服务（打包后的资源直接被浏览器请求和解析）</view>
+        <view>3.socket server 是一个 websocket 的长连接，双方可以通信</view>
+        <view>4.当 socket server 监听到对应的模块发生变化时，会生成两个文件.json（manifest文件）和.js文件（update chunk）</view>
+        <view>5.通过长连接，socket server 可以直接将这两个文件主动发送给客户端（浏览器）</view>
+        <view>6.浏览器拿到两个新的文件后，通过HMR runtime机制，加载这两个文件，并且针对修改的模块进行更新</view>
+    </view>
+    <view class="content" wx:if="{{key==5}}">
+        <view class="title">webpack中常见的Loader</view>
+        <view class="num">style-loader</view>
+        <view>将css添加到DOM的内联样式标签style里</view>
+        <view class="num">css-loader</view>
+        <view>允许将css文件通过require的方式引入，并返回css代码</view>
+        <view class="num">less-loader</view>
+        <view>处理less</view>
+        <view class="num">sass-loader</view>
+        <view> 处理sass</view>
+        <view class="num">postcss-loader</view>
+        <view>用postcss来处理CSS</view>
+        <view class="num">autoprefixer-loader</view>
+        <view>处理CSS3属性前缀，已被弃用，建议直接使用postcss</view>
+        <view class="num">file-loader</view>
+        <view>分发文件到output目录并返回相对路径</view>
+        <view class="num">url-loader</view>
+        <view>和file-loader类似，但是当文件小于设定的limit时可以返回一个Data Url</view>
+        <view class="num">html-minify-loader</view>
+        <view>压缩HTML</view>
+        <view class="num">babel-loader</view>
+        <view>用babel来转换ES6文件到ES5</view>
+    </view>
+    <view class="content" wx:if="{{key==6}}">
+        <view class="title">webpack中常见的Plugin</view>
+        <view class="num">AggressiveSplittingPlugin</view>
+        <view>将原来的chunk 分成更小的 chunk</view>
+        <view class="num">BabelMinifyWebpackPlugin</view>
+        <view>使用 babel-minify进行压缩</view>
+        <view class="num">BannerPlugin</view>
+        <view>在每个生成的 chunk 顶部添加 banner</view>
+        <view class="num">CommonsChunkPlugin</view>
+        <view>提取chunks之间共享的通用模块</view>
+        <view class="num">CompressionWebpackPlugin</view>
+        <view>预先准备的资源压缩版本，使用 Content-Encoding提供访问服务</view>
+        <view class="num">ContextReplacementPlugin</view>
+        <view>重写require表达式的推断上下文</view>
+        <view class="num">CopywebpackPlugin</view>
+        <view>将单个文件或整个目录复制到构建目录</view>
+        <view class="num">DefinePlugin</view>
+        <view>允许在编译时(compile time)配置的全局常量</view>
+        <view class="num">DllPlugin</view>
+        <view>为了极大减少构建时间，进行分离打包</view>
+        <view class="num">EnvironmentPlugin</view>
+        <view>DefinePlugin 中process.env 键的简写方式</view>
+        <view class="num">ExtractTextwebpackPlugin</view>
+        <view>从bundle中提取文本(CSS)到单独的文件</view>
+        <view class="num">HotModuleReplacementPlugin</view>
+        <view>启用模块热替换(Enable Hot Module Replacement-HMR)</view>
+        <view class="num">HtmlWebpackPlugin</view>
+        <view>简单创建 HTML文件，用于服务器访问</view>
+        <view class="num">I18nWebpackPlugin</view>
+        <view>为bundle 增加国际化支持</view>
+        <view class="num">IgnorePlugin</view>
+        <view>从bundle中排除某些模块</view>
+        <view class="num">LimitChunkCountPlugin</view>
+        <view>设置chunk的最小/最大限制，以微调和控制chunk</view>
+        <view class="num">LoaderOptionsPlugin</view>
+        <view>用于从 webpack1迁移到 webpack 2</view>
+        <view class="num">MinChunkSizePlugin</view>
+        <view>确保chunk大小超过指定限制</view>
+        <view class="num">NoEmitOnErrorsPlugin</view>
+        <view>在输出阶段时，遇到编译错误跳过</view>
+        <view class="num">NormaUModuleReplacementplugin</view>
+        <view>替换与正则表达式匹配的资源</view>
+    </view>
+</view>

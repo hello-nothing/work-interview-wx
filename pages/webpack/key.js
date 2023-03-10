@@ -1,41 +1,37 @@
-// pages/other/other.js
+// pages/webpack/key.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        list: [{
-                id: 1,
-                name: '常见的浏览器兼容问题'
-            },
-            {
-                id: 2,
-                name: '必记单词'
-            },
-            {
-                id: 3,
-                name: 'Git命令'
-            },
-            {
-                id: 4,
-                name: 'Git常用命令'
-            },
-        ]
-    },
-    goLook(e) {
-        let id = e.currentTarget.dataset.id;
-        console.log(id)
-        wx.navigateTo({
-            url: `/pages/other/key?key=${id}`,
-        })
+        key: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log(options)
+        this.setData({
+            key: Number(options.key),
+        })
+    },
+    nextQuestion() {
+        let value = Number(this.data.key) + 1
+        console.log(value)
+        this.setData({
+            key: value
+        })
+        console.log(this.data.key)
+    },
+    preQuestion() {
+        let value = Number(this.data.key) - 1
+        console.log(value)
+        this.setData({
+            key: value
+        })
+        console.log(this.data.key)
     },
 
     /**

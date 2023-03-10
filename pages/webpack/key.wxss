@@ -1,0 +1,2 @@
+/* pages/webpack/key.wxss */
+@import '../html/key.wxss';
