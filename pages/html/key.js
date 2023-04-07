@@ -1,4 +1,7 @@
 // pages/key/key.js
+const {
+    getQuestionDetail
+} = require('../../utils/api')
 Page({
 
     /**
@@ -6,6 +9,8 @@ Page({
      */
     data: {
         key: 1,
+        detail:'',
+        title:""
     },
 
     /**
@@ -13,8 +18,20 @@ Page({
      */
     onLoad: function (options) {
         console.log(options)
-        this.setData({
-            key: Number(options.key),
+        // this.setData({
+        //     key: Number(options.id),
+        // })
+        this.getDetail(options.id)
+    },
+    getDetail(id) {
+        getQuestionDetail({
+            id
+        }).then(res => {
+            console.log(res)
+            this.setData({
+                title:res.data.title,
+                detail: res.data.content
+            })
         })
     },
     nextQuestion() {

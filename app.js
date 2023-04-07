@@ -1,21 +1,31 @@
 // app.js
+import {
+  _request,
+} from './utils/request'
+const {
+  login
+} = require('./utils/api')
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
         console.log(res)
+        this.globalData.code = res.code;
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        login({
+          code: res.code
+        }).then(result => {
+          console.log(result);
+          wx.setStorageSync('token', result.data.token)
+        })
+
       }
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    _request
   }
 })
 // "tabBar": {

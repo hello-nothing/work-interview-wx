@@ -1,0 +1,15 @@
+<!--pages/question/key.wxml-->
+<view class="page">
+    <view class="content">
+        <!-- <view class="type">{{kind}}</view> -->
+        <view class="title">{{detailInfo.title}}</view>
+    </view>
+    <view class="content">
+        <rich-text nodes="{{detailInfo.content}}"></rich-text>
+    </view>
+    <view class="btn">
+        <view class="pre" bindtap="goBack">返回</view>
+        <view wx:if="{{!isCollect}}" bindtap="collect">收藏</view>
+        <view wx:else bindtap="resetCollect">取消收藏</view>
+    </view>
+</view>

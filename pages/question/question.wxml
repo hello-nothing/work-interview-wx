@@ -1,4 +1,4 @@
-<!--pages/collection/collection.wxml-->
+<!--pages/question/question.wxml-->
 <view class="page">
     <view bindtap="goLook" data-id="{{item.id}}" data-kind="{{item.kind}}" class="question-list" wx:for="{{list}}"
         wx:key="index">

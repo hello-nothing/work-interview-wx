@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view bindtap="goPage" data-url="{{item.url}}" class="list" wx:for="{{navList}}" wx:key="index">
+  <view bindtap="goPage" data-url="{{item.url}}" data-id="{{item.id}}" class="list" wx:for="{{navList}}" wx:key="index">
     {{item.name}}
   </view>
 </view>

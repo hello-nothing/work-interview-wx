@@ -1,4 +1,7 @@
 // pages/html/html.js
+const {
+    getQuestionList
+} = require('../../utils/api')
 Page({
 
     /**
@@ -104,11 +107,11 @@ Page({
             },
             {
                 id: 25,
-                name:'video标签的几个属性方法'
+                name: 'video标签的几个属性方法'
             },
             {
                 id: 26,
-                name:"HTML5新特性"
+                name: "HTML5新特性"
             }
         ],
     },
@@ -117,13 +120,24 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log(options)
+        this.getList(options.id)
+    },
+    getList(id) {
+        getQuestionList({
+            id
+        }).then(res => {
+            console.log(res)
+            this.setData({
+                list: res.data
+            })
+        })
     },
     goLook(e) {
         let id = e.currentTarget.dataset.id;
         console.log(id)
         wx.navigateTo({
-            url: `/pages/html/key?key=${id}`,
+            url: `/pages/html/key?id=${id}`,
         })
     },
     /**

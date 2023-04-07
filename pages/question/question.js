@@ -1,6 +1,6 @@
-// pages/collection/collection.js
+// pages/question/question.js
 const {
-    getLikeList
+    getQuestionList
 } = require('../../utils/api')
 Page({
 
@@ -16,10 +16,12 @@ Page({
      */
     onLoad: function (options) {
         console.log(options)
-        this.getList()
+        this.getList(options.id)
     },
-    getList() {
-        getLikeList().then(res => {
+    getList(id) {
+        getQuestionList({
+            id
+        }).then(res => {
             console.log(res)
             this.setData({
                 list: res.data

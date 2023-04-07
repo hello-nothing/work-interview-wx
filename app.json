@@ -21,7 +21,9 @@
         "pages/wx/wx",
         "pages/wx/key",
         "pages/webpack/webpack",
-        "pages/webpack/key"
+        "pages/webpack/key",
+        "pages/question/question",
+        "pages/question/key"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -43,13 +45,8 @@
                 "text": "收藏",
                 "iconPath": "/img/collection.png",
                 "selectedIconPath": "/img/collection1.png"
-            },
-            {
-                "pagePath": "pages/my/my",
-                "text": "我的",
-                "iconPath": "/img/my.png",
-                "selectedIconPath": "/img/my1.png"
             }
+
         ]
     },
     "style": "v2",

@@ -1,71 +1,39 @@
 // index.js
 // 获取应用实例
-const app = getApp()
-
+const {
+  getTypeList
+} = require('../../utils/api')
 Page({
   data: {
-    navList: [{
-        name: 'HTML',
-        url: '/pages/html/html',
-      },
-      {
-        name: 'CSS',
-        url: '/pages/css/css',
-      },
-      {
-        name: 'Js',
-        url: '/pages/js/js',
-      },
-      {
-        name: 'vue2.0',
-        url: '/pages/vue/vue',
-      },
-      {
-        name: 'vue3.0',
-        url: '',
-      },
-      {
-        name: 'react',
-        url: '',
-      },
-      // {
-      //   name: 'ES6',
-      //   url: '/pages/es6/es6',
-      // },
-      {
-        name: '小程序',
-        url: '/pages/wx/wx',
-      },
-      {
-        name: 'HTTP',
-        url: '/pages/http/http',
-      },
-      {
-        name: 'webpack',
-        url: '/pages/webpack/webpack',
-      },
-      {
-        name: '性能优化',
-        url: '/pages/optimize/optimize',
-      },
-      {
-        name: '常见手写',
-        url: '',
-      },
-      {
-        name: '其他',
-        url: '/pages/other/other',
-      },
-    ]
+    navList: []
   },
   // 事件处理函数
   goPage(e) {
-    const url =  e.currentTarget.dataset.url;
+    const url = e.currentTarget.dataset.url;
+    const id = e.currentTarget.dataset.id;
+    console.log(id)
     wx.navigateTo({
-      url
+      url: `/pages/question/question?id=${id}`
     })
   },
-  onLoad() {
+  onShow: function (options) {
+    const data = wx.getStorageSync('typeList')
+    if (data) {
+      this.setData({
+        navList: JSON.parse(data)
+      })
+    } else {
+      this.getTypeList()
+    }
+  },
+  getTypeList() {
+    getTypeList().then(res => {
+      console.log(res)
+      this.setData({
+        navList: res.data
+      })
+      wx.setStorageSync('typeList', JSON.stringify(res.data))
+    })
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗

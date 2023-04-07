@@ -1,4 +1,4 @@
-/* pages/html/key.wxss */
+/* pages/question/key.wxss */
 .page {
     padding-bottom: 200rpx;
 }
@@ -12,7 +12,8 @@
     padding: 20rpx 30rpx;
     padding-bottom: env(safe-area-inset-bottom);
     background-color: #ffffff;
-    box-shadow: 10px 10px 10px 5px #4e6ef2; /*默认为外部阴影*/ 
+    box-shadow: 10px 10px 10px 5px #4e6ef2;
+    /*默认为外部阴影*/
 }
 
 .btn>view {
@@ -27,6 +28,7 @@
     border-radius: 10rpx;
     border: 1px solid #4e6ef2;
 }
+
 .btn .pre {
     /* float: left; */
     color: #4e6ef2;
@@ -36,6 +38,7 @@
 
 .content {
     margin-bottom: 30rpx;
+    overflow-x: auto;
 }
 
 .title {
@@ -44,24 +47,11 @@
     color: #4e6ef2;
 }
 
-.num {
-    padding-right: 10rpx;
+.type {
+    font-size: 30rpx;
     color: #4e6ef2;
 }
 
-image {
-    display: block;
-    margin: 0 auto;
-}
-
-.qc1 {
-    height: 240rpx;
-}
-
-.qc2 {
-    height: 300rpx;
-}
-
-.qc3 {
-    height: 700rpx;
+.type text {
+    color: #333333;
 }
